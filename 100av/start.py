@@ -15,6 +15,7 @@ for lst in lstone:
     if lst.has_attr('href') and '/list/' in lst['href']:
        urlsone.append(sourceurl.rstrip('/')+lst['href'])
 print(urlsone[0])
+#iterator each kind
 #for uso in urlsone:
 resoo = requests.get(urlsone[0])
 resoo.encoding = 'utf-8'
@@ -22,9 +23,13 @@ bsoo = BeautifulSoup(resoo.text, 'html.parser')
 lstoo = bsoo.select('a')
 #    urlsoo = []
 urlsoo=[]
+#get the all links under current kind
 for lsto in lstoo:
     if lsto.has_attr('href') and '/vod/' in lsto['href'] \
             and lsto['href'].endswith('.html'):
         urlsoo.append(sourceurl.rstrip('/')+lsto['href'])
 print(urlsoo)
-print(len(urlsoo))
+del urlsoo[0]
+urlsooo=[]
+[urlsooo.append(x) for x in urlsoo if x not in urlsooo]
+print(len(urlsooo))
