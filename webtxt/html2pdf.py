@@ -55,9 +55,9 @@ def parse_url_to_html(url, name):
                 return m.group(1)+m.group(2)+m.group(3)  
         html = re.compile(pattern).sub(func, html)  
         html = html_template.format(content=html)  
-        html = html.encode("utf-8")  
+        html = html.decode("utf-8")  
         with open(name, 'wb') as f:  
-            f.write(html)  
+            f.write(html.encode('utf-8'))  
         return name  
 
     except Exception as e:  
