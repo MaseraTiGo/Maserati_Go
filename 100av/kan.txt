@@ -1,0 +1,70 @@
+微软小冰颜值api
+[cpp] view plain copy print?
+http://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=yanzhi  
+
+在使用前我们看一下效果
+[cpp] view plain copy print?
+{"msgId":"1461905520063","timestamp":0,"receiverId":null,"content":{"text":"颜值7.2分，再接再厉！捯饬捯饬，说不定就是男神了呢~","imageUrl":"http:\\\\/\\\\/mediaplatform.trafficmanager.cn\\\\/image\\\\/fetchimage?key=UQAfAC8ABAAAAFcAFgAGABYASgBAADgAMQBFAEQARABGAEEAMgBGADkAQgBGAEYAQwA4AEEANQAxADgAMAA4AEEANgA2ADMAMwBFADMAMAA3AEEA","metadata":{"w":"scv9isnfUnZbhOfPjNnUjOfir-3Ave_sisfqiuToh-LmisD0j-zAoMbJt9Xth-bXgeDkhMHThtXpj_nArvfSv8z_i_PlgMnLHw==","aid":"926D0CE62C692233D68C55F972C001FB"}}}  
+
+这个是返回的json格式的数据，其中可以用的关键字自己把握
+在使用api前，我们需要上传图片到微软的图片服务器，并接收返回的json数据
+[cpp] view plain copy print?
+// 上传图片到微软服务器，返回服务器的json格式的图片地址  
+function upLoad($imgData = ''){  
+    $curl = curl_init();  
+    curl_setopt($curl, CURLOPT_POST, 1);  
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $imgData);  
+    curl_setopt($curl, CURLOPT_URL, "http://kan.msxiaobing.com/Api/Image/UploadBase64");  
+    curl_setopt($curl, CURLOPT_TIMEOUT, 10);  
+    $user_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";  
+    curl_setopt ($curl, CURLOPT_USERAGENT, $user_agent);  
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);    
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);    
+    $str = curl_exec($curl);    
+    curl_close($curl);  
+    return $str;    
+}  
+  
+// 接收一个图片url，将其转换为base64字符串形式  
+function didImg($imgUrl = ''){  
+    try {  
+        $img_file = file_get_contents($imgUrl);  
+    } catch (Exception $e) {  
+        return false;  
+    }  
+  
+    return base64_encode($img_file);  
+}  
+
+我们在使用upLoad前需要把图片转换为base64的格式，使用didImg函数就可以做到。
+我们来看一下上传成功服务器返回的数据：
+[cpp] view plain copy print?
+{"Host":"http://mediaplatform.trafficmanager.cn","Url":"/image/fetchimage?key=JMGsEUAgbwPVieCjp0qsipGGlm8houXZoZqugTZlprvKOKroQbiHMnJ9WD8"}  
+
+这个就是服务器已经将图片处理了，并存放在服务器里面
+我们在使用颜值api前，需要使用它
+我们来看一下完整的代码
+[cpp] view plain copy print?
+function getFace( $imgUrl= '' ){  
+    // 获取图片，并转换为base64格式  
+    $imgData =  didImg($imgUrl);  
+    if ($imgData == false)  
+        return false;  
+    // 上传图片并接收其返回值  
+    $resImg = upLoad($imgData);  
+    // 处理json格式，转换为array格式  
+    $imgArr = (array)json_decode($resImg);  
+    // 构造api所需数据  
+    $data = array(  
+        'MsgId' => time()."063",  
+        'CreateTime' => time(),  
+        'Content%5BimageUrl%5D' => $imgArr['Host'].$imgArr['Url']);  
+    // 颜值测试  
+    $res = curl("http://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=yanzhi",$data,"POST");  
+    // 处理数据  
+    $res = (array)json_decode($res);  
+    return $res;  
+}  
+
+getFace 可以完成颜值测试的整个过程，使用一个url图片，就可以得到其中人物的颜值，是不是很有感觉，亲自动手试一试吧！祝你好运！
+可以自己DIY一下，因为有了数据，就可以利用对吧，比如通过学校的教务系统证件照，将全校颜值最高的美女揪出来，是不是很给力！其实我是想做一个我们学校的颜值大厅来表白的，把自己的女神放到第一，结果被举报了。
