@@ -42,6 +42,7 @@ moviename=[]
 torrent=[]
 pic=[]
 i = 0
+head = {'user-agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"}
 for av in urlsooo:
     fp = open('%d.jpg'%i,'wb')
     resav=requests.get(av)
@@ -50,11 +51,13 @@ for av in urlsooo:
     #get the pic's url
     pic = 'https:' + avsop.find_all('div',class_="pic")[0].select('img')[0]['src']
     picUrl = str(pic)
-    picp = requests.get(picUrl)
+    picp = requests.get(picUrl,headers=head)
     fp.write(picp.content)
     fp.close()
     print type(picUrl)
-    avtemlst=avsop.select('h1')
+    #avtemlst=avsop.select('h1')
+    #get the mnovie name
+    avtemlst = avsop.find_all('div',class_='title')[-1].select('span')[0].text #bs4.element.Tag has such atrrs:find_all、select,both of them return a list,inside the list still Tag
     for avtem in avtemlst:
         print avtem.text
         moviename.append(avtem.text)
@@ -63,5 +66,6 @@ for av in urlsooo:
     for avtemt in avtemtt:
         torrent.append(avtemt.text)
     i +=1
+    break
 print torrent
 #print(dict(zip(moviename,torrent)))
