@@ -116,32 +116,29 @@ def main():
     pdfs =[]  
     for i in range(0,124):  
         htmls.append(str(i)+'.html')  
-        pdfs.append(file_name+str(i)+'.pdf')  
-
-        save_pdf(str(i)+'.html', file_name+str(i)+'.pdf')  
-
-        print u"转换完成第"+str(i)+'个html'  
-
+        pdfs.append(file_name+str(i)+'.pdf')
+        save_pdf(str(i)+'.html', file_name+str(i)+'.pdf') 
+        print("转换完成第"+str(i)+'个html')
     merger = PdfFileMerger()  
     for pdf in pdfs:  
        merger.append(open(pdf,'rb'))  
-       print u"合并完成第"+str(i)+'个pdf'+pdf  
+       print("合并完成第"+str(i)+'个pdf'+pdf)
 
     output = open(u"廖雪峰Python_all.pdf", "wb")  
     merger.write(output)  
 
-    print u"输出PDF成功！"  
+    print("输出PDF成功！")
 
     for html in htmls:  
         os.remove(html)  
-        print u"删除临时文件"+html  
+        print("删除临时文件"+html)
 
     for pdf in pdfs:  
         os.remove(pdf)  
-        print u"删除临时文件"+pdf  
+        print("删除临时文件"+pdf)
 
     total_time = time.time() - start  
-    print(u"总共耗时：%f 秒" % total_time)  
+    print("总共耗时：%f 秒" % total_time)  
 
 
 if __name__ == '__main__':  
