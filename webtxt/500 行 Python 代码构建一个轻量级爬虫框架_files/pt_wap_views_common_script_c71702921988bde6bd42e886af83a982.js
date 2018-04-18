@@ -1,1 +1,0 @@
-document.addEventListener("touchstart",function(){},!1);document.addEventListener("DOMContentLoaded",function(){window.FastClick&&FastClick.attach(document.body)},!1);
