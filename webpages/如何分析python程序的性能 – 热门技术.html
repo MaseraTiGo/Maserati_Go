@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.topjishu.com/6302.html -->
+<html slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./如何分析python程序的性能 – 热门技术_files/c.js"></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>如何分析python程序的性能 – 热门技术</title>
+<script type="text/javascript" async="" src="./如何分析python程序的性能 – 热门技术_files/analytics.js"></script><script src="./如何分析python程序的性能 – 热门技术_files/push.js"></script><script src="./如何分析python程序的性能 – 热门技术_files/hm.js"></script><script type="text/javascript" async="" src="./如何分析python程序的性能 – 热门技术_files/qcjm"></script><script type="text/javascript" async="" src="./如何分析python程序的性能 – 热门技术_files/qcjm(1)"></script><script type="text/javascript" async="" src="./如何分析python程序的性能 – 热门技术_files/qcjm(2)"></script><script>
+window._deel = {
+    name: '热门技术',
+    url: 'https://www.topjishu.com/wp-content/themes/d8',
+    rss: 'http://www.topjishu.com/feed',
+    ajaxpager: '',
+    maillist: '',
+    maillistCode: '399c0f2c52d2969de4d0978c7237e27b471facb4e80fc95b',
+    commenton: 1,
+    roll: [1,20],
+    tougaoContentmin: 20,
+    tougaoContentmax: 50000,
+    appkey: {
+    	tqq: '111111111',
+    	tsina: '551593240',
+    	t163: '',
+    	tsohu: ''
+    }
+}
+</script>
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.topjishu.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.5"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./如何分析python程序的性能 – 热门技术_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="style-css" href="./如何分析python程序的性能 – 热门技术_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="enlighter-local-css" href="./如何分析python程序的性能 – 热门技术_files/EnlighterJS.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/jquery.js"></script>
+<link rel="https://api.w.org/" href="https://www.topjishu.com/wp-json/">
+<link rel="prev" title="自动化工具 ansible中文指南" href="https://www.topjishu.com/6299.html">
+<link rel="next" title="Sublime Text 3 破解版 + 注册机 + 汉化包+安装插件" href="https://www.topjishu.com/6305.html">
+<link rel="canonical" href="https://www.topjishu.com/6302.html">
+<link rel="shortlink" href="https://www.topjishu.com/?p=6302">
+<link rel="alternate" type="application/json+oembed" href="https://www.topjishu.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.topjishu.com%2F6302.html">
+<link rel="alternate" type="text/xml+oembed" href="https://www.topjishu.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.topjishu.com%2F6302.html&amp;format=xml">
+
+<link rel="stylesheet" href="./如何分析python程序的性能 – 热门技术_files/highslide.css" type="text/css">
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/highslide-with-html.packed.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    hs.graphicsDir = "https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/";
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.addSlideshow({
+        interval: 5000,
+        repeat: true,
+        useControls: true,
+        fixedControls: "fit",
+        overlayOptions: {
+            opacity: 0.75,
+            position: "bottom center",
+            hideOnMouseOut: true
+
+        }
+
+    });
+});
+</script>
+	<script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://www.topjishu.com/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '6302';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = false;
+	window._wp_rp_post_title = '%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90python%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%80%A7%E8%83%BD';
+	window._wp_rp_post_tags = ['python', '%E5%88%86%E6%9E%90', '%E6%80%A7%E8%83%BD', '%E6%80%A7%E8%83%BD', 'python', '%E5%88%86%E6%9E%90', 'print', 'return', 'gutter', 'instal', 'def', '1000', 'import', 'python', 'bash', 'true', 'timer', 'time', 'redi'];
+	window._wp_rp_promoted_content = true;
+</script>
+<meta name="keywords" content="python, 分析, 性能, python, 分析, 性能">
+<meta name="description" content="    	获取程序运行的大概时间 	获取更精确的程序运行时间 	计算每一行代码的运行时间和运行频率 	找到程序运行时占用多少内存 	line_profiler 和memory_profiler在IPython中的简便实用方法 	找到内存泄露的地方 	获取使用最多的前20个对象 	获取增加和删除的对象 	那些对象被引用     程序性能分析需要基本上需要搞清楚4个问题  	程序到底有多快 	程序的瓶颈到底在哪里 	程序占用内存多">
+<style>.article-content{font-size: 16px;line-height:27px;}.article-content p{margin:20px 0;}@media (max-width:640px){.article-content{font-size:16px}}body{margin-top: 52px}.navbar-wrap{position:fixed}@media (max-width: 979px){body{margin-top: 0}.navbar-wrap{position:relative}}</style><!--[if lt IE 9]><script src="https://www.topjishu.com/wp-content/themes/d8/js/html5.js"></script><![endif]-->
+<style type="text/css">.highslide img {cursor: url(https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/zoomin.cur), pointer !important;}.highslide-viewport-size {position: fixed; width: 100%; height: 100%; left: 0; top: 0}</style></head>
+<body class="post-template-default single single-post postid-6302 single-format-standard"><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"></div>
+<div class="navbar-wrap">
+<div class="navbar">
+		<div class="logo"><a href="https://www.topjishu.com/" title="热门技术-热门技术">热门技术</a></div>
+		<ul class="nav">
+			<li id="menu-item-9252" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-9252"><a href="https://www.topjishu.com/">首页</a></li>
+<li id="menu-item-10586" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10586"><a href="https://www.topjishu.com/recommend">推荐</a></li>
+<li id="menu-item-9244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9244"><a href="https://www.topjishu.com/contribute">投稿</a></li>
+<li id="menu-item-9510" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9510"><a href="https://www.topjishu.com/archive.html">存档</a></li>
+<li id="menu-item-9511" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9511"><a href="https://www.topjishu.com/tags.html">标签</a></li>
+<li id="menu-item-9242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9242"><a href="https://www.topjishu.com/link">链接</a></li>
+<li id="menu-item-9258" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9258"><a href="https://www.topjishu.com/readers">读者墙</a></li>
+<li id="menu-item-11084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11084"><a href="https://www.topjishu.com/category/sinacloud">新浪云</a></li>
+<li id="menu-item-9253" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9253"><a href="https://www.topjishu.com/sitemap.html">网站地图</a></li>
+		</ul><div class="screen-mini"><button data-type="screen-nav" class="btn btn-inverse screen-nav"><i class="icon-tasks icon-white"></i></button></div>
+		<div class="menu pull-right">
+			<form method="get" class="dropdown search-form" action="https://www.topjishu.com/">
+				<input class="search-input" name="s" type="text" placeholder="输入关键字搜索" x-webkit-speech=""><input class="btn btn-success search-submit" type="submit" value="搜索">
+				<ul class="dropdown-menu search-suggest"></ul>
+			</form>
+			<div class="btn-group pull-left">
+				<button class="btn btn-primary" data-toggle="modal" data-target="#feed">订阅</button>
+							</div>
+		</div>
+</div>
+</div>
+<header class="header">
+	<div class="speedbar">
+					<div class="pull-right">
+				<i class="icon-user icon12"></i> <a href="https://www.topjishu.com/wp-login.php">登录</a>			</div>
+				<div class="toptip"><strong class="text-success">最新消息：</strong></div>
+	</div>
+</header>
+<section class="container">
+	<div class="content-wrap">
+	<div class="content">
+		<div class="breadcrumbs">你的位置：<a href="https://www.topjishu.com/">热门技术</a> <small>&gt;</small> <a href="https://www.topjishu.com/category/python">python</a> <small>&gt;</small> <span class="muted">如何分析python程序的性能</span></div>
+				<header class="article-header">
+			<h1 class="article-title"><a href="https://www.topjishu.com/6302.html">如何分析python程序的性能</a></h1>
+			<div class="meta">
+				<span class="muted"><a href="https://www.topjishu.com/category/python"><i class="icon-list-alt icon12"></i> python</a></span>				<span class="muted"><i class="icon-user icon12"></i> <a href="https://www.topjishu.com/author/admin">admin</a></span>
+								<time class="muted"><i class="ico icon-time icon12"></i> 4年前 (2014-02-24)</time>
+				<span class="muted"><i class="ico icon-eye-open icon12"></i> 4531浏览</span>
+				<span class="muted"><i class="icon-comment icon12"></i> <a href="https://www.topjishu.com/6302.html#respond">0评论</a></span>							</div>
+		</header>
+
+		<div class="banner banner-post"><script type="text/javascript">
+    /*760*90 创建于 2017/6/26*/
+    var cpro_id = "u3019421";
+</script>
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/c(1).js"></script><div id="BAIDU_SSP__wrapper_u3019421_0"></div>
+</div>		
+		<article class="article-content">
+			<p>&nbsp;</p>
+<div id="AnchorContent">
+<ul>
+<li>获取程序运行的大概时间</li>
+<li>获取更精确的程序运行时间</li>
+<li>计算每一行代码的运行时间和运行频率</li>
+<li>找到程序运行时占用多少内存</li>
+<li>line_profiler 和memory_profiler在IPython中的简便实用方法</li>
+<li>找到内存泄露的地方</li>
+<li>获取使用最多的前20个对象</li>
+<li>获取增加和删除的对象</li>
+<li>那些对象被引用</li>
+</ul>
+</div>
+<div>
+<p>程序性能分析需要基本上需要搞清楚4个问题</p>
+<ol>
+<li>程序到底有多快</li>
+<li>程序的瓶颈到底在哪里</li>
+<li>程序占用内存多少</li>
+<li>是否存在内存泄露</li>
+</ol>
+<p>下面我们使用一些工具来回答以上四个问题。</p>
+<h3>获取程序运行的大概时间</h3>
+<p>在linux平台上，可以使用<code>time</code>命令得到程序运行的大概时间：</p>
+<pre class="brush: bash; gutter: true">$ time python yourprogram.py
+
+real    0m1.028s
+user    0m0.001s
+sys     0m0.003s</pre>
+<p><span style="line-height: 1.5em;">简短的来说，其输出的结果说明：</span></p>
+<ul>
+<li><code>real</code>&nbsp;– 程序实际运行的时间</li>
+<li><code>user</code>&nbsp;– 用户空间话费的cpu时间</li>
+<li><code>sys</code>&nbsp;– 内核空间话费的cpu时间</li>
+</ul>
+<p>如果<code>sys</code>和<code>user</code>之和的时间远远小于<code>real</code>的时间，那么说明程序大部分的时间很可能花费在IO等待。</p>
+<h3>获取更精确的程序运行时间</h3>
+<p>下面我们通过封装一个<code>Timer</code>类来实现获取更精确地程序运行时间</p>
+<pre class="brush: python; gutter: true">import time
+
+class Timer(object):
+    def __init__(self, verbose=False):
+        self.verbose = verbose
+
+    def __enter__(self):
+        self.start = time.time()
+        return self
+
+    def __exit__(self, *args):
+        self.end = time.time()
+        self.secs = self.end - self.start
+        self.msecs = self.secs * 1000  # millisecs
+        if self.verbose:
+            print 'elapsed time: %f ms' % self.msecs</pre>
+<p><span style="line-height: 1.5em;">为了使用我们封装的类，必须使用</span><code style="line-height: 1.5em;">with</code><span style="line-height: 1.5em;">来封装我们需要计算的代码块，这样当代码块开始时，计时器开始，当代码块结束时计时器停止。</span></p>
+<p>这是一个使用上述代码片段的例子：</p>
+<pre class="brush: python; gutter: true">from timer import Timer
+from redis import Redis
+rdb = Redis()
+
+with Timer() as t:
+    rdb.lpush("foo", "bar")
+print "=&gt; elasped lpush: %s s" % t.secs
+
+with Timer as t:
+    rdb.lpop("foo")
+print "=&gt; elasped lpop: %s s" % t.secs</pre>
+<p><span style="line-height: 1.5em;">可以将时间输出到文件中，已查看程序的时常运行时间。</span></p>
+<h3>计算每一行代码的运行时间和运行频率</h3>
+<p>这里我们需要使用<code>line_profiler</code>模块，首先安装该模块：</p>
+<pre class="brush: bash; gutter: true">pip install line_profiler</pre>
+<p><span style="line-height: 1.5em;">为了使用该模块，需要将</span><code style="line-height: 1.5em;">@profile</code><span style="line-height: 1.5em;">添加到你需要观察的函数头部。</span></p>
+<p>primes.py</p>
+<pre class="brush: python; gutter: true">@profile
+def primes(n):
+    if n==2:
+        return [2]
+    elif n&lt;2:
+        return []
+    s=range(3,n+1,2)
+    mroot = n ** 0.5
+    half=(n+1)/2-1
+    i=0
+    m=3
+    while m &lt;= mroot:
+        if s[i]:
+            j=(m*m-3)/2
+            s[j]=0
+            while j&lt;half:
+                s[j]=0
+                j+=m
+        i=i+1
+        m=2*i+3
+    return [2]+[x for x in s if x]
+primes(100)</pre>
+<p>使用<code>kernprof.py</code>运行python脚本：</p>
+<pre class="brush: bash; gutter: true">$ kernprof.py -l -v fib.py</pre>
+<p><code style="line-height: 1.5em;">-l</code><span style="line-height: 1.5em;">参数是告诉</span><code style="line-height: 1.5em;">kernprof.py</code><span style="line-height: 1.5em;">测试头部有</span><code style="line-height: 1.5em;">@profile</code><span style="line-height: 1.5em;">的函数，</span><code style="line-height: 1.5em;">-v</code><span style="line-height: 1.5em;">参数是告诉</span><code style="line-height: 1.5em;">kernprof.py</code><span style="line-height: 1.5em;">当脚本运行完毕时打印出时间信息。以下是告诉</span><code style="line-height: 1.5em;">kernprof.py</code><span style="line-height: 1.5em;">的输出信息样本：</span></p>
+<pre class="brush: python; gutter: true">Wrote profile results to primes.py.lprof
+Timer unit: 1e-06 s
+
+File: primes.py
+Function: primes at line 2
+Total time: 0.00019 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     2                                           @profile
+     3                                           def primes(n):
+     4         1            2      2.0      1.1      if n==2:
+     5                                                   return [2]
+     6         1            1      1.0      0.5      elif n&lt;2:
+     7                                                   return []
+     8         1            4      4.0      2.1      s=range(3,n+1,2)
+     9         1           10     10.0      5.3      mroot = n ** 0.5
+    10         1            2      2.0      1.1      half=(n+1)/2-1
+    11         1            1      1.0      0.5      i=0
+    12         1            1      1.0      0.5      m=3
+    13         5            7      1.4      3.7      while m &lt;= mroot:
+    14         4            4      1.0      2.1          if s[i]:
+    15         3            4      1.3      2.1              j=(m*m-3)/2
+    16         3            4      1.3      2.1              s[j]=0
+    17        31           31      1.0     16.3              while j&lt;half:
+    18        28           28      1.0     14.7                  s[j]=0
+    19        28           29      1.0     15.3                  j+=m
+    20         4            4      1.0      2.1          i=i+1
+    21         4            4      1.0      2.1          m=2*i+3
+    22        50           54      1.1     28.4      return [2]+[x for x in s if x]</pre>
+<div id="highlighter_783714"></div>
+<p>根据上面的输出，找到运行最多的代码行或者运行时间最长的代码来优化，定会提升程序的性能。</p>
+<h3>找到程序运行时占用多少内存</h3>
+<p>现在我们已经知道如何测试程序的运行时间，接下来看看如何得知程序占用的内存，我们需要安装使用到的模块<code>memory_profiler</code>:</p>
+<pre class="brush: bash; gutter: true">$ pip install -U memory_profiler
+$ pip install psutil</pre>
+<p><span style="line-height: 1.5em;">（安装</span><code style="line-height: 1.5em;">psutil</code><span style="line-height: 1.5em;">会很大程度上提高</span><code style="line-height: 1.5em;">memory_profiler</code><span style="line-height: 1.5em;">的性能。）</span></p>
+<p>和前面说过的一样，为了得到函数占用的内存，需要在函数头部添加<code>@profile</code>，如下：</p>
+<pre class="brush: python; gutter: true">@profile
+def primes(n):
+    ...
+    ...</pre>
+<p><span style="line-height: 1.5em;">用下面的命令运行你的脚本：</span></p>
+<pre class="brush: bash; gutter: true">$ python -m memory_profiler primes.py</pre>
+<p><span style="line-height: 1.5em;">你会得到像下面这样的输出：</span></p>
+<pre class="brush: python; gutter: true">Filename: primes.py
+
+Line #    Mem usage  Increment   Line Contents
+==============================================
+     2                           @profile
+     3    7.9219 MB  0.0000 MB   def primes(n):
+     4    7.9219 MB  0.0000 MB       if n==2:
+     5                                   return [2]
+     6    7.9219 MB  0.0000 MB       elif n&lt;2:
+     7                                   return []
+     8    7.9219 MB  0.0000 MB       s=range(3,n+1,2)
+     9    7.9258 MB  0.0039 MB       mroot = n ** 0.5
+    10    7.9258 MB  0.0000 MB       half=(n+1)/2-1
+    11    7.9258 MB  0.0000 MB       i=0
+    12    7.9258 MB  0.0000 MB       m=3
+    13    7.9297 MB  0.0039 MB       while m &lt;= mroot:
+    14    7.9297 MB  0.0000 MB           if s[i]:
+    15    7.9297 MB  0.0000 MB               j=(m*m-3)/2
+    16    7.9258 MB -0.0039 MB               s[j]=0
+    17    7.9297 MB  0.0039 MB               while j&lt;half:
+    18    7.9297 MB  0.0000 MB                   s[j]=0
+    19    7.9297 MB  0.0000 MB                   j+=m
+    20    7.9297 MB  0.0000 MB           i=i+1
+    21    7.9297 MB  0.0000 MB           m=2*i+3
+    22    7.9297 MB  0.0000 MB       return [2]+[x for x in s if x]</pre>
+<h3><code>line_profiler</code>&nbsp;和<code>memory_profiler</code>在<code>IPython</code>中的简便实用方法</h3>
+<p>在<code>IPython</code>中，只要你执行以下两个命令，皆可以直接实用<code>line_profiler</code>&nbsp;和<code>memory_profiler</code>了：</p>
+<pre class="brush: bash; gutter: true">%load_ext memory_profiler
+%load_ext line_profiler</pre>
+<p><span style="line-height: 1.5em;">执行这两个命令以后，就可以通过执行</span><code style="line-height: 1.5em;">%lprun</code><span style="line-height: 1.5em;">&nbsp;和</span><code style="line-height: 1.5em;">%mprun</code><span style="line-height: 1.5em;">命令来测试你需要测试的函数，而不需要在每个函数前面添加</span><code style="line-height: 1.5em;">@profile</code><span style="line-height: 1.5em;">标记，如下：</span></p>
+<pre class="brush: bash; gutter: true">In [1]: from primes import primes
+In [2]: %mprun -f primes primes(1000)
+In [3]: %lprun -f primes primes(1000)</pre>
+<p><span style="font-size: 1.17em; line-height: 1.5em;">找到内存泄露的地方</span></p>
+<p><code>cPython</code>利用对象的引用计数来维护内存的使用，当某个对象被保存一次时，该对象的引用次数就会加1，某个对象被删除一次时，该对象的引用次数就减1，当引用次数为零时，删除该对象。</p>
+<p>当某个对象已经不再使用了，但是他的引用还存在，那么就会出现内存泄露。</p>
+<p>要检测内存泄露，这里我们需要用到模块<code>objgraph</code>&nbsp;，使用下面命令安装该模块</p>
+<pre class="brush: bash; gutter: true">pip install objgraph</pre>
+<p><span style="line-height: 1.5em;">(主要这个模块是要按照</span><code style="line-height: 1.5em;">python</code><span style="line-height: 1.5em;">的</span><code style="line-height: 1.5em;">xdot</code><span style="line-height: 1.5em;">模块和</span><code style="line-height: 1.5em;">graphviz</code><span style="line-height: 1.5em;">程序)</span></p>
+<p>在代码中使用一下代码打开调试模式：</p>
+<pre class="brush: bash; gutter: true">import pdb; pdb.set_trace()</pre>
+<p><span style="font-size: 1em; line-height: 1.5em;">获取使用最多的前20个对象</span></p>
+<p>使用下面的命令：</p>
+<pre class="brush: python; gutter: true">(pdb) import objgraph
+(pdb) objgraph.show_most_common_types()
+
+MyBigFatObject             20000
+tuple                      16938
+function                   4310
+dict                       2790
+wrapper_descriptor         1181
+builtin_function_or_method 934
+weakref                    764
+list                       634
+method_descriptor          507
+getset_descriptor          451
+type                       439</pre>
+<h4>获取增加和删除的对象</h4>
+<p>使用下面的命令：</p>
+<pre class="brush: python; gutter: true">(pdb) import objgraph
+(pdb) objgraph.show_growth()
+.
+.
+.
+(pdb) objgraph.show_growth()   # this only shows objects that has been added or deleted since last show_growth() call
+
+traceback                4        +2
+KeyboardInterrupt        1        +1
+frame                   24        +1
+list                   667        +1
+tuple                16969        +1</pre>
+<div id="highlighter_473069"></div>
+<h4>那些对象被引用</h4>
+<p>以下面的代码为例：</p>
+<pre class="brush: bash; gutter: true">x = [1]
+y = [x, [x], {"a":x}]
+import pdb; pdb.set_trace()</pre>
+<p><span style="line-height: 1.5em;">执行下面的命令：</span></p>
+<pre class="brush: bash; gutter: true">(pdb) import objgraph
+(pdb) objgraph.show_backref([x], filename="/tmp/backrefs.png")</pre>
+<p><span style="line-height: 1.5em;">输出下面的图片：</span></p>
+<p><a href="./如何分析python程序的性能 – 热门技术_files/134916_5z1h_616678.png" class="highslide-image" onclick="return hs.expand(this);" data-original-title="" title=""><img class="attachment-medium" alt="134916_5z1h_616678" src="./如何分析python程序的性能 – 热门技术_files/134916_5z1h_616678.png" width="1668" height="781"></a></p>
+<p>图片最底下的红色字母表示的对象是我们做关系的，它显示了那么变量引用了这个对象。</p>
+<p>总的说来，<code>objgraph</code>会告诉我们：</p>
+<ul>
+<li>占用内存的对象</li>
+<li>在一段时间内对象的增加和删除</li>
+<li>对象的所有引用</li>
+</ul>
+</div>
+
+<div class="wp_rp_wrap  wp_rp_plain" id="wp_rp_first"><div class="wp_rp_content"><h3 class="related_post_title">相关文章</h3><ul class="related_post wp_rp"><li data-position="0" data-poid="in-8477" data-post-type="none"><a href="https://www.topjishu.com/8477.html" class="wp_rp_title" data-original-title="" title="">Python 性能分析入门指南</a></li><li data-position="1" data-poid="in-9452" data-post-type="none"><a href="https://www.topjishu.com/9452.html" class="wp_rp_title" data-original-title="" title="">我常用的 Python 调试工具</a></li><li data-position="2" data-poid="in-8041" data-post-type="none"><a href="https://www.topjishu.com/8041.html" class="wp_rp_title" data-original-title="" title="">Python Profile 工具性能分析</a></li><li data-position="3" data-poid="in-7087" data-post-type="none"><a href="https://www.topjishu.com/7087.html" class="wp_rp_title" data-original-title="" title="">python 多线程日志切割+日志分析</a></li><li data-position="4" data-poid="in-10187" data-post-type="none"><a href="https://www.topjishu.com/10187.html" class="wp_rp_title" data-original-title="" title="">Python 中的进程、线程、协程、同步、异步、回调</a></li><li data-position="5" data-poid="in-5318" data-post-type="none"><a href="https://www.topjishu.com/5318.html" class="wp_rp_title" data-original-title="" title="">Python Web 性能和压力测试 multi-mechanize</a></li></ul></div></div>
+<p>转载请注明：<a href="https://www.topjishu.com/" data-original-title="" title="">热门技术</a> » <a href="https://www.topjishu.com/6302.html" data-original-title="" title="">如何分析python程序的性能</a></p>		</article>
+
+		
+		<footer class="article-footer">
+			<div class="article-tags">继续浏览有关 <a href="https://www.topjishu.com/tag/python" rel="tag">python</a><a href="https://www.topjishu.com/tag/%e5%88%86%e6%9e%90" rel="tag">分析</a><a href="https://www.topjishu.com/tag/%e6%80%a7%e8%83%bd" rel="tag">性能</a> 的文章</div>			<div class="share"><h5>分享到 </h5><div class="bdsharebuttonbox"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a><a class="bds_t163" data-cmd="t163"></a><a class="bds_tsohu" data-cmd="tsohu"></a><a class="bds_baidu" data-cmd="baidu"></a><a class="bds_douban" data-cmd="douban"></a><a class="bds_bdhome" data-cmd="bdhome"></a><a class="bds_youdao" data-cmd="youdao"></a><a class="bds_fbook" data-cmd="fbook"></a><a class="bds_twi" data-cmd="twi"></a><a class="bds_more" data-cmd="more"></a><a class="bds_count" data-cmd="count"></a></div></div>		</footer>
+
+		<nav class="article-nav">
+			<span class="article-nav-prev">上一篇 <a href="https://www.topjishu.com/6299.html" rel="prev">自动化工具 ansible中文指南</a></span>
+			<span class="article-nav-next"><a href="https://www.topjishu.com/6305.html" rel="next">Sublime Text 3 破解版 + 注册机 + 汉化包+安装插件</a> 下一篇</span>
+		</nav>
+
+		<div class="relates">
+			<h3>与本文相关的文章</h3>
+			<ul>
+<li><a href="https://www.topjishu.com/11899.html">使用Python往Elasticsearch插入数据</a></li><li><a href="https://www.topjishu.com/11774.html">Python Subprocess Popen 管道阻塞问题分析解决</a></li></ul>		</div>
+	
+
+		
+		<div id="respond" class="no_webshot">
+		<form action="https://www.topjishu.com/wp-comments-post.php" method="post" id="commentform">
+		
+		<div class="comt-title">
+			<div class="comt-avatar pull-left">
+				<img src="./如何分析python程序的性能 – 热门技术_files/saved_resource" class="avatar avatar-56" height="56" width="56">			</div>
+			<div class="comt-author pull-left">
+			发表我的评论			</div>
+			<a id="cancel-comment-reply-link" class="pull-right" href="javascript:;">取消评论</a>
+		</div>
+		
+		<div class="comt">
+			<div class="comt-box">
+				<textarea placeholder="写点什么..." class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById(&#39;submit&#39;).click();return false};"></textarea>
+				<div class="comt-ctrl">
+					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="icon-ok-circle icon-white icon12"></i> 提交评论</button>
+					<div class="comt-tips pull-right"><input type="hidden" name="comment_post_ID" value="6302" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+<div class="comt-tip comt-loading" style="display: none;">正在提交, 请稍候...</div><div class="comt-tip comt-error" style="display: none;">#</div></div>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="icon-thumbs-up icon12"></i> 表情</span>
+					<span class="muted comt-mailme"><label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked">有人回复时邮件通知我</label></span>
+				</div>
+			</div>
+
+												<div class="comt-comterinfo" id="comment-author-info">
+						<h4>Hi Hello您需要填写昵称和邮箱</h4>
+						<ul>
+							<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="help-inline">昵称 (必填)</span></li>
+							<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="help-inline">邮箱 (必填)</span></li>
+							<li class="form-inline"><label class="hide" for="url">网址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="网址"><span class="help-inline">网址</span></li>
+							<li> <input type="text" name="sum" class="math_textfield" value="" size="25" tabindex="4"><input type="hidden" name="num1" value="15"><input type="hidden" name="num2" value="31"> 请输入评论验证码 46  </li>
+						</ul>
+					</div>
+									</div>
+
+		
+	</form>
+	</div>
+
+		
+	</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><h3 class="widget_tit">广而告之</h3>			<div class="textwidget"><p><script type="text/javascript">
+    /*350*280 创建于 2017/6/26*/
+    var cpro_id = "u3019425";
+</script><br>
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/c(1).js"></script></p><div id="BAIDU_SSP__wrapper_u3019425_0"></div><p></p>
+</div>
+		</div><div class="widget d_tag"><h3 class="widget_tit">标签云</h3><div class="d_tags"><a href="https://www.topjishu.com/tag/mysql">mysql (257)</a><a href="https://www.topjishu.com/tag/python">python (256)</a><a href="https://www.topjishu.com/tag/linux-2">linux (253)</a><a href="https://www.topjishu.com/tag/nginx">nginx (203)</a><a href="https://www.topjishu.com/tag/php">php (145)</a><a href="https://www.topjishu.com/tag/%e4%bc%98%e5%8c%96">优化 (114)</a><a href="https://www.topjishu.com/tag/%e8%a7%a3%e5%86%b3">解决 (110)</a><a href="https://www.topjishu.com/tag/kernel">kernel (84)</a><a href="https://www.topjishu.com/tag/%e6%80%a7%e8%83%bd">性能 (83)</a><a href="https://www.topjishu.com/tag/centos">centos (82)</a><a href="https://www.topjishu.com/tag/%e5%91%bd%e4%bb%a4">命令 (82)</a><a href="https://www.topjishu.com/tag/tcp">tcp (78)</a><a href="https://www.topjishu.com/tag/http">http (77)</a><a href="https://www.topjishu.com/tag/c">c (75)</a><a href="https://www.topjishu.com/tag/%e9%94%99%e8%af%af">错误 (70)</a><a href="https://www.topjishu.com/tag/cpu-2">CPU (63)</a><a href="https://www.topjishu.com/tag/cache">cache (62)</a><a href="https://www.topjishu.com/tag/%e6%b5%8b%e8%af%95">测试 (58)</a><a href="https://www.topjishu.com/tag/%e7%bd%91%e7%bb%9c">网络 (57)</a><a href="https://www.topjishu.com/tag/io">IO (55)</a><a href="https://www.topjishu.com/tag/sql">SQL (55)</a><a href="https://www.topjishu.com/tag/%e5%86%85%e6%a0%b8">内核 (55)</a><a href="https://www.topjishu.com/tag/%e9%85%8d%e7%bd%ae">配置 (53)</a><a href="https://www.topjishu.com/tag/%e5%ae%89%e5%85%a8">安全 (52)</a><a href="https://www.topjishu.com/tag/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库 (52)</a><a href="https://www.topjishu.com/tag/%e5%86%85%e5%ad%98">内存 (51)</a><a href="https://www.topjishu.com/tag/%e4%bb%a3%e7%a0%81">代码 (49)</a><a href="https://www.topjishu.com/tag/%e7%9b%91%e6%8e%a7">监控 (48)</a><a href="https://www.topjishu.com/tag/innodb-2">InnoDB (45)</a><a href="https://www.topjishu.com/tag/%e5%b7%a5%e5%85%b7">工具 (45)</a><a href="https://www.topjishu.com/tag/%e6%a8%a1%e5%9d%97">模块 (45)</a><a href="https://www.topjishu.com/tag/%e5%8d%8f%e8%ae%ae">协议 (44)</a><a href="https://www.topjishu.com/tag/redis">redis (43)</a><a href="https://www.topjishu.com/tag/%e7%b3%bb%e7%bb%9f">系统 (43)</a><a href="https://www.topjishu.com/tag/bash">bash (42)</a><a href="https://www.topjishu.com/tag/%e5%88%86%e6%9e%90">分析 (42)</a><a href="https://www.topjishu.com/tag/%e7%bd%91%e5%8d%a1">网卡 (42)</a><a href="https://www.topjishu.com/tag/ip">ip (41)</a><a href="https://www.topjishu.com/tag/git">git (40)</a><a href="https://www.topjishu.com/tag/%e7%bc%93%e5%ad%98">缓存 (40)</a><a href="https://www.topjishu.com/tag/%e8%99%9a%e6%8b%9f%e5%8c%96">虚拟化 (40)</a><a href="https://www.topjishu.com/tag/web">web (39)</a><a href="https://www.topjishu.com/tag/%e5%ae%89%e8%a3%85">安装 (39)</a><a href="https://www.topjishu.com/tag/%e6%97%a5%e5%bf%97">日志 (39)</a><a href="https://www.topjishu.com/tag/apache">apache (38)</a><a href="https://www.topjishu.com/tag/windows">windows (37)</a><a href="https://www.topjishu.com/tag/%e5%87%bd%e6%95%b0">函数 (37)</a><a href="https://www.topjishu.com/tag/%e5%a4%84%e7%90%86">处理 (37)</a><a href="https://www.topjishu.com/tag/%e8%87%aa%e5%8a%a8%e5%8c%96">自动化 (37)</a><a href="https://www.topjishu.com/tag/%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f">文件系统 (36)</a></div></div><div class="widget d_comment"><h3 class="widget_tit">最新评论</h3><ul><li><a href="https://www.topjishu.com/2297.html#comment-1289" title="使用Sheepdog体验Openstack的弹性块服务上的评论"><img data-original="https://secure.gravatar.com/avatar/c5d991ee0c6fa4701b4cdd62edd15496" class="avatar avatar-72" height="72" width="72" src="./如何分析python程序的性能 – 热门技术_files/default.png">admin <span class="muted">5个月前 (11-18)说：<br>jjj</span></a></li><li><a href="https://www.topjishu.com/8692.html#comment-1286" title="BIND 配置文件(named.conf) logging 的使用上的评论"><img data-original="https://secure.gravatar.com/avatar/c5d991ee0c6fa4701b4cdd62edd15496" class="avatar avatar-72" height="72" width="72" src="./如何分析python程序的性能 – 热门技术_files/default.png">admin <span class="muted">6个月前 (10-25)说：<br>up</span></a></li></ul></div><div class="widget widget_text"><h3 class="widget_tit">广而告之</h3>			<div class="textwidget"></div>
+		</div><div class="widget d_postlist"><h3 class="widget_tit">最新文章</h3><ul class="nopic"><li><a href="https://www.topjishu.com/11962.html"><span class="text">查看Linux系统/文件是32位还是64位</span><span class="muted">2018-04-11</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11959.html"><span class="text">使用tcpdump查看HTTP请求响应</span><span class="muted">2018-03-28</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11955.html"><span class="text">一个双网卡导致的网络故障</span><span class="muted">2018-03-28</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11951.html"><span class="text">linux文件系统 inode及相关概念 inode大小设置</span><span class="muted">2018-03-26</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11940.html"><span class="text">理解inode</span><span class="muted">2018-03-26</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11932.html"><span class="text">iptables drop domain dns request packet</span><span class="muted">2018-02-05</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11929.html"><span class="text">卸载RPM包时报错specifies multiple packages</span><span class="muted">2018-02-01</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11927.html"><span class="text">Rpmdb checksum is invalid: dCDPT(pkg checksums):</span><span class="muted">2018-02-01</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11925.html"><span class="text">__ratelimit: N callbacks suppressed</span><span class="muted">2018-01-29</span><span class="muted"></span></a></li>
+<li><a href="https://www.topjishu.com/11921.html"><span class="text">Nginx下的rewrite规则</span><span class="muted">2018-01-27</span><span class="muted"></span></a></li>
+</ul></div><div class="widget widget_archive"><h3 class="widget_tit">文章归档</h3>		<ul>
+			<li><a href="https://www.topjishu.com/date/2018/04">2018年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2018/03">2018年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2018/02">2018年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2018/01">2018年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/12">2017年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/11">2017年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/10">2017年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/09">2017年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/08">2017年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/07">2017年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/06">2017年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/05">2017年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/04">2017年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/03">2017年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/02">2017年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2017/01">2017年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/12">2016年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/11">2016年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/10">2016年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/09">2016年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/08">2016年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/07">2016年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/06">2016年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/05">2016年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/04">2016年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/03">2016年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/02">2016年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2016/01">2016年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/12">2015年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/11">2015年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/09">2015年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/08">2015年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/07">2015年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/06">2015年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/05">2015年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/04">2015年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/03">2015年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/02">2015年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2015/01">2015年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/12">2014年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/11">2014年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/10">2014年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/09">2014年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/08">2014年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/07">2014年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/06">2014年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/05">2014年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/04">2014年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/03">2014年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/02">2014年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2014/01">2014年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/12">2013年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/11">2013年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/10">2013年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/09">2013年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/08">2013年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/07">2013年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/06">2013年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/05">2013年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/04">2013年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/03">2013年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/02">2013年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2013/01">2013年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/12">2012年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/11">2012年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/10">2012年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/09">2012年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/08">2012年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/07">2012年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/06">2012年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/05">2012年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/04">2012年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/03">2012年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/02">2012年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2012/01">2012年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/12">2011年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/11">2011年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/10">2011年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/09">2011年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/08">2011年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/07">2011年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/06">2011年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/05">2011年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/04">2011年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/03">2011年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/02">2011年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2011/01">2011年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/12">2010年十二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/11">2010年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/10">2010年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/09">2010年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/08">2010年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/07">2010年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/06">2010年六月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/05">2010年五月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/04">2010年四月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/03">2010年三月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/02">2010年二月</a></li>
+	<li><a href="https://www.topjishu.com/date/2010/01">2010年一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2009/11">2009年十一月</a></li>
+	<li><a href="https://www.topjishu.com/date/2009/10">2009年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2009/09">2009年九月</a></li>
+	<li><a href="https://www.topjishu.com/date/2009/08">2009年八月</a></li>
+	<li><a href="https://www.topjishu.com/date/2009/07">2009年七月</a></li>
+	<li><a href="https://www.topjishu.com/date/2006/10">2006年十月</a></li>
+	<li><a href="https://www.topjishu.com/date/2005/12">2005年十二月</a></li>
+		</ul>
+		</div><div class="widget widget_links"><h3 class="widget_tit">博客链接</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.ichenfu.com/" target="_blank">C0reFast</a></li>
+<li><a href="http://selboo.com/">selboo</a></li>
+<li><a href="http://blog.lilydjwg.me/">依云's Blog</a></li>
+<li><a href="http://www.lvtao.net/" target="_blank">吕滔博客</a></li>
+<li><a href="https://see.changes.com.cn/" target="_blank">想猜赫巴德哥</a></li>
+<li><a href="http://blog.zfuyun.top/" target="_blank">赵浮云的blog</a></li>
+<li><a href="http://www.it-refer.com/" target="_blank">零一积流</a></li>
+
+	</ul>
+</div>
+<div class="widget widget_links"><h3 class="widget_tit">网站链接</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.sousuoya.com/" target="_blank">Google翻墙</a></li>
+<li><a href="http://book.aikaiyuan.com/" target="_blank">LinuxBook</a></li>
+<li><a href="http://etc.aikaiyuan.com/" target="_blank">LinuxETC</a></li>
+<li><a href="http://www.touxianzhai.com/" target="_blank">高清PDF书籍</a></li>
+
+	</ul>
+</div>
+<div class="widget widget_text"><h3 class="widget_tit">广而告之</h3>			<div class="textwidget"><p><script type="text/javascript">
+    /*336*280 创建于 2017/6/26*/
+    var cpro_id = "u3019424";
+</script><br>
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/c(1).js"></script></p><div id="BAIDU_SSP__wrapper_u3019424_0"></div><p></p>
+</div>
+		</div><div class="widgetRoller" style="position: fixed; top: 62px; z-index: 0; width: 360px; display: none;"><div class="widget widget_text"><h3 class="widget_tit">广而告之</h3>			<div class="textwidget"><p><br>
+</p><div id="BAIDU_SSP__wrapper_u3019425_0"></div><p></p>
+</div>
+		</div></div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+            版权所有，保留一切权利！ © 2018 <a href="https://www.topjishu.com/">热门技术 Theme
+        </a></div><a href="https://www.topjishu.com/">
+        <div class="trackcode pull-right">
+            <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a26e7eeb66d2a4aa3354c7bcc578b0d5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./如何分析python程序的性能 – 热门技术_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114921273-1');
+</script>
+        </div>
+    </a></div><a href="https://www.topjishu.com/">
+</a></footer><a href="https://www.topjishu.com/">
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/mootools-core-yc.js"></script>
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/EnlighterJS.min.js"></script>
+<script type="text/javascript" src="./如何分析python程序的性能 – 热门技术_files/wp-embed.min.js"></script>
+<script type="text/javascript">/* <![CDATA[ */EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"shell","theme":"enlighter","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;/* ]]> */</script>
+
+</a><div class="modal hide fade" id="feed" tabindex="-1" style="width:400px;margin-left:-200px;"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>订阅热门技术</h3></div><div class="modal-body"><p><strong>订阅地址</strong><br><input type="text" class="input-block-level" value="http://www.topjishu.com/feed" readonly=""></p></div></div><div class="rollto" style="display: block;"><button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="icon-eject icon-white"></i></button><button class="btn btn-inverse" data-type="torespond" title="发评论"><i class="icon-comment icon-white"></i></button></div><div class="highslide-container" style="padding: 0px; border: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="点击关闭" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">正在加载中...</a><div style="display: none;"></div><div class="highslide-viewport highslide-viewport-size" style="padding: 0px; border: none; margin: 0px; visibility: hidden;"></div><table cellspacing="0" style="padding: 0px; border: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border: none; margin: 0px;"><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) 0px 0px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) 0px -40px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) -20px 0px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) 0px -80px; height: 20px; width: 20px;"></td><td class="rounded-white highslide-outline" style="padding: 0px; border: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) -20px -80px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) 0px -20px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) 0px -60px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://www.topjishu.com/wp-content/plugins/auto-highslide/highslide/graphics/outlines/rounded-white.png&quot;) -20px -20px; height: 20px; width: 20px;"></td></tr></tbody></table></div></body></html>

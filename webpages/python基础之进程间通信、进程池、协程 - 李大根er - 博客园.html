@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/lidagen/p/7252285.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>python基础之进程间通信、进程池、协程 - 李大根er - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/bundle-MoonlightInk.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/bundle-MoonlightInk-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/lidagen/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/lidagen/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/lidagen/wlwmanifest.xml">
+<script async="" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/analytics.js"></script><script type="text/javascript" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/encoder.js"></script><script src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'lidagen', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/blog-common.js" type="text/javascript"></script>
+</head><style type="text/css" id="1557844705"></style>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/lidagen/"><img id="blogLogo" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/lidagen/">ʚHɞ</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/lidagen/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%9D%8E%E5%A4%A7%E6%A0%B9er">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/lidagen/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/lidagen/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 54&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 2</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/lidagen/p/7252285.html">python基础之进程间通信、进程池、协程</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><strong>进程间通信</strong></p>
+<p>进程彼此之间互相隔离，要实现进程间通信（IPC），multiprocessing模块支持两种形式：队列和管道，这两种方式都是使用消息传递的。</p>
+<p><strong>进程队列queue</strong></p>
+<p>不同于线程queue，进程queue的生成是用multiprocessing模块生成的。</p>
+<p>在生成子进程的时候，会将代码拷贝到子进程中执行一遍，及子进程拥有和主进程内容一样的不同的名称空间。</p>
+<p>示例1：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import multiprocessing
+ 2 def foo():
+ 3     q.put([11,'hello',True])
+ 4     print(q.qsize())
+ 5 
+ 6 q=multiprocessing.Queue() #全局定义一个q进程队列，在产生子进程时候会在子进程里生成，可以指定最大数，限制队列长度
+ 7 if __name__ == '__main__':
+ 8     p=multiprocessing.Process(target=foo,args=()) #因为名称空间不同，子进程的主线程创建的q队列，主进程get不到，所以会阻塞住
+ 9     p.start()
+10     # foo() #主进程执行一下函数就可以访问到了
+11     print(q.get())</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>示例2：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import multiprocessing
+ 2 
+ 3 def foo():
+ 4     q.put([11,'hello',True])
+ 5     print(q.qsize())
+ 6 
+ 7 if __name__ == '__main__':
+ 8     q = multiprocessing.Queue() #主进程创建一个q进程队列
+ 9     p=multiprocessing.Process(target=foo,args=()) #因为名称空间不同，子进程的主线程找不到q队列，所以会报错提示没有q
+10     p.start()
+11     print(q.get())</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>示例3：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import multiprocessing
+ 2 
+ 3 def foo(argument):      #定义函数处理进程队列
+ 4     argument.put([11,'hello',True])
+ 5     print(argument.qsize())
+ 6 q = multiprocessing.Queue() #全局定义一个进程队列
+ 7 print('test')
+ 8 
+ 9 if __name__ == '__main__':
+10     x = multiprocessing.Queue()   #主进程定义一个进程队列
+11     p=multiprocessing.Process(target=foo,args=(x,))     #主进程把值传给子进程就可以处理了
+12     p.start()
+13     print(x.get())
+14     # foo(q)
+15     # print(q.get())</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>常用方法</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>q.put方法用以插入数据到队列中，put方法还有两个可选参数：blocked和timeout。如果blocked为True（默认值），并且timeout为正值，该方法会阻塞timeout指定的时间，直到该队列有剩余的空间。如果超时，会抛出Queue.Full异常。如果blocked为False，但该Queue已满，会立即抛出Queue.Full异常。
+q.get方法可以从队列读取并且删除一个元素。同样，get方法有两个可选参数：blocked和timeout。如果blocked为True（默认值），并且timeout为正值，那么在等待时间内没有取到任何元素，会抛出Queue.Empty异常。如果blocked为False，有两种情况存在，如果Queue有一个值可用，则立即返回该值，否则，如果队列为空，则立即抛出Queue.Empty异常.
+q.get_nowait():同q.get(False)
+q.put_nowait():同q.put(False)
+q.empty():调用此方法时q为空则返回True，该结果不可靠，比如在返回True的过程中，如果队列中又加入了项目。
+q.full()：调用此方法时q已满则返回True，该结果不可靠，比如在返回True的过程中，如果队列中的项目被取走。
+q.qsize():返回队列中目前项目的正确数量，结果也不可靠，理由同q.empty()和q.full()一样</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>其他方法</p>
+<div class="cnblogs_code">
+<pre>q.cancel_join_thread():不会在进程退出时自动连接后台线程。可以防止join_thread()方法阻塞
+q.close():关闭队列，防止队列中加入更多数据。调用此方法，后台线程将继续写入那些已经入队列但尚未写入的数据，但将在此方法完成时马上关闭。如果q被垃圾收集，将调用此方法。关闭队列不会在队列使用者中产生任何类型的数据结束信号或异常。例如，如果某个使用者正在被阻塞在get()操作上，关闭生产者中的队列不会导致get()方法返回错误。
+q.join_thread()：连接队列的后台线程。此方法用于在调用q.close()方法之后，等待所有队列项被消耗。默认情况下，此方法由不是q的原始创建者的所有进程调用。调用q.cancel_join_thread方法可以禁止这种行为</pre>
+</div>
+<p>&nbsp;</p>
+<p>另一个创建进程队列的类</p>
+<p><a href="http://www.cnblogs.com/zero527/p/7211909.html" target="_blank">http://www.cnblogs.com/zero527/p/7211909.html</a></p>
+<p><strong>管道pipe</strong></p>
+<p>管道就是管道，就像生活中的管道，两头都能进能出</p>
+<p>默认管道是全双工的，如果创建管道的时候映射成False，左边只能用于接收，右边只能用于发送，类似于单行道</p>
+<p>最简单的管道双向通信示例：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import multiprocessing
+ 2 
+ 3 def foo(sk):
+ 4     sk.send('hello world')
+ 5     print(sk.recv())
+ 6 
+ 7 if __name__ == '__main__':
+ 8     conn1,conn2=multiprocessing.Pipe()    #开辟两个口，都是能进能出，括号中如果False即单向通信
+ 9     p=multiprocessing.Process(target=foo,args=(conn1,))  #子进程使用sock口，调用foo函数
+10     p.start()
+11     print(conn2.recv())  #主进程使用conn口接收
+12     conn2.send('hi son') #主进程使用conn口发送</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>常用方法</p>
+<div class="cnblogs_code">
+<pre>conn1.recv():接收conn2.send(obj)发送的对象。如果没有消息可接收，recv方法会一直阻塞。如果连接的另外一端已经关闭，那么recv方法会抛出EOFError。
+conn1.send(obj):通过连接发送对象。obj是与序列化兼容的任意对象<br><strong>注意：send()和recv()方法使用pickle模块对对象进行序列化</strong></pre>
+</div>
+<p>&nbsp;</p>
+<p>其他方法</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>conn1.close():关闭连接。如果conn1被垃圾回收，将自动调用此方法,不用的时候两边都要close
+
+conn1.fileno():返回连接使用的整数文件描述符
+
+conn1.poll([timeout]):如果连接上的数据可用，返回True。timeout指定等待的最长时限。如果省略此参数，方法将立即返回结果。如果将timeout射成None，操作将无限期地等待数据到达。
+
+conn1.recv_bytes([maxlength]):接收c.send_bytes()方法发送的一条完整的字节消息。maxlength指定要接收的最大字节数。如果进入的消息，超过了这个最大值，将引发IOError异常，并且在连接上无法进行进一步读取。如果连接的另外一端已经关闭，再也不存在任何数据，将引发EOFError异常。
+
+conn.send_bytes(buffer [, offset [, size]])：通过连接发送字节数据缓冲区，buffer是支持缓冲区接口的任意对象，offset是缓冲区中的字节偏移量，而size是要发送字节数。结果数据以单条消息的形式发出，然后调用c.recv_bytes()函数进行接收    
+ 
+conn1.recv_bytes_into(buffer [, offset]):接收一条完整的字节消息，并把它保存在buffer对象中，该对象支持可写入的缓冲区接口（即bytearray对象或类似的对象）。offset指定缓冲区中放置消息处的字节位移。返回值是收到的字节数。如果消息长度大于可用的缓冲区空间，将引发BufferTooShort异常。</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>注意：生产者和消费者都没有使用管道的某个端点，就应该将其关闭，如在生产者中关闭管道的右端，在消费者中关闭管道的左端。如果忘记执行这些步骤，程序可能再消费者中的recv()操作上挂起。管道是由操作系统进行引用计数的,必须在所有进程中关闭管道后才能生产EOFError异常。因此在生产者中关闭管道不会有任何效果，付费消费者中也关闭了相同的管道端点。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><img id="code_img_closed_b5fec8bb-10e1-4fef-a4dc-0c24f4c0cb6a" class="code_img_closed" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_b5fec8bb-10e1-4fef-a4dc-0c24f4c0cb6a" class="code_img_opened" style="display: none" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_b5fec8bb-10e1-4fef-a4dc-0c24f4c0cb6a" class="cnblogs_code_hide">
+<pre><span style="color: #008080"> 1</span> <span style="color: #0000ff">from</span> multiprocessing <span style="color: #0000ff">import</span><span style="color: #000000"> Process,Pipe
+</span><span style="color: #008080"> 2</span> 
+<span style="color: #008080"> 3</span> <span style="color: #0000ff">import</span><span style="color: #000000"> time,os
+</span><span style="color: #008080"> 4</span> <span style="color: #0000ff">def</span><span style="color: #000000"> consumer(p,name):
+</span><span style="color: #008080"> 5</span>     left,right=<span style="color: #000000">p
+</span><span style="color: #008080"> 6</span> <span style="color: #000000">    left.close()
+</span><span style="color: #008080"> 7</span>     <span style="color: #0000ff">while</span><span style="color: #000000"> True:
+</span><span style="color: #008080"> 8</span>         <span style="color: #0000ff">try</span><span style="color: #000000">:
+</span><span style="color: #008080"> 9</span>             baozi=<span style="color: #000000">right.recv()
+</span><span style="color: #008080">10</span>             <span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">%s 收到包子:%s</span><span style="color: #800000">'</span> %<span style="color: #000000">(name,baozi))
+</span><span style="color: #008080">11</span>         <span style="color: #0000ff">except</span><span style="color: #000000"> EOFError:
+</span><span style="color: #008080">12</span> <span style="color: #000000">            right.close()
+</span><span style="color: #008080">13</span>             <span style="color: #0000ff">break</span>
+<span style="color: #008080">14</span> <span style="color: #0000ff">def</span><span style="color: #000000"> producer(seq,p):
+</span><span style="color: #008080">15</span>     left,right=<span style="color: #000000">p
+</span><span style="color: #008080">16</span> <span style="color: #000000">    right.close()
+</span><span style="color: #008080">17</span>     <span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span><span style="color: #000000"> seq:
+</span><span style="color: #008080">18</span> <span style="color: #000000">        left.send(i)
+</span><span style="color: #008080">19</span>         <span style="color: #008000">#</span><span style="color: #008000"> time.sleep(1)</span>
+<span style="color: #008080">20</span>     <span style="color: #0000ff">else</span><span style="color: #000000">:
+</span><span style="color: #008080">21</span> <span style="color: #000000">        left.close()
+</span><span style="color: #008080">22</span> <span style="color: #0000ff">if</span> <span style="color: #800080">__name__</span> == <span style="color: #800000">'</span><span style="color: #800000">__main__</span><span style="color: #800000">'</span><span style="color: #000000">:
+</span><span style="color: #008080">23</span>     left,right=<span style="color: #000000">Pipe()
+</span><span style="color: #008080">24</span>     c1=Process(target=consumer,args=((left,right),<span style="color: #800000">'</span><span style="color: #800000">c1</span><span style="color: #800000">'</span><span style="color: #000000">))
+</span><span style="color: #008080">25</span> <span style="color: #000000">    c1.start()
+</span><span style="color: #008080">26</span>     seq=(i <span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(10<span style="color: #000000">))
+</span><span style="color: #008080">27</span> <span style="color: #000000">    producer(seq,(left,right))
+</span><span style="color: #008080">28</span> <span style="color: #000000">    right.close()
+</span><span style="color: #008080">29</span> <span style="color: #000000">    left.close()
+</span><span style="color: #008080">30</span> <span style="color: #000000">    c1.join()
+</span><span style="color: #008080">31</span>     <span style="color: #0000ff">print</span>(<span style="color: #800000">'</span><span style="color: #800000">主进程</span><span style="color: #800000">'</span><span style="color: #000000">)
+</span><span style="color: #008080">32</span> 
+<span style="color: #008080">33</span> 生产者消费者关闭某端点</pre>
+</div>
+<span class="cnblogs_code_collapse">生产者消费者关闭某端点</span></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>共享数据manage</strong></p>
+<p>Queue和pipe只是实现了数据交互，并没实现数据共享，即一个进程去更改另一个进程的数据<strong>。</strong></p>
+<p>注：进程间通信应该尽量避免使用共享数据的方式</p>
+<p>&nbsp;</p>
+<p>共享数据：列表</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 from multiprocessing import Manager,Process
+ 2 def foo(l,i):
+ 3     l.append(i**i)
+ 4 if __name__ == '__main__':
+ 5     man=Manager()
+ 6     ml=man.list([11,22,33])
+ 7     l=[]
+ 8     for i in range(5):
+ 9         p=Process(target=foo,args=(ml,i))
+10         p.start()
+11         l.append(p)
+12     for i in l: #必须要join，不然会执行报错，处理一个数据必须要一个个来，不能同时处理一个数据
+13         i.join()
+14     print(ml)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>共享数据：字典</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 from multiprocessing import Manager,Process
+ 2 def foo(d,k,v):
+ 3     d[k]=v
+ 4 if __name__ == '__main__':
+ 5     man=Manager()
+ 6     md=man.dict({'name':'bob'})
+ 7     l=[]
+ 8     for i in range(5):
+ 9         p=Process(target=foo,args=(md,i,'a'))
+10         p.start()
+11         l.append(p)
+12     for i in l: #必须要join，不然会执行报错，处理一个数据必须要一个个来，不能同时处理一个数据
+13         i.join()
+14     print(md)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>进程池</strong></p>
+<p>开多进程是为了并发，通常有几个cpu核心就开几个进程，但是进程开多了会影响效率，主要体现在切换的开销，所以引入进程池限制进程的数量。</p>
+<p>进程池内部维护一个进程序列，当使用时，则去进程池中获取一个进程，如果进程池序列中没有可供使用的进进程，那么程序就会等待，直到进程池中有可用进程为止。</p>
+<p>示例：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 from multiprocessing import Pool
+ 2 import time
+ 3 
+ 4 def foo(n):
+ 5     print(n)
+ 6     time.sleep(1)
+ 7 
+ 8 if __name__ == '__main__':
+ 9     pool_obj=Pool(5)    #
+10     for i in range(47):
+11         # pool_obj.apply_async(func=foo,args=(i,))
+12         pool_obj.apply(func=foo,args=(i,))    #子进程的生成是靠进程池对象维护的
+13         # apply同步，子进程一个个执行
+14         # apply_async异步，多个子进程一起执行
+15     pool_obj.close()
+16     pool_obj.join()
+17     print('ending')</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>常用方法：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>pool_obj.apply(func [, args [, kwargs]]):在一个池工作进程中执行func(*args,**kwargs),然后返回结果。需要强调的是：此操作并不会在所有池工作进程中并执行func函数。如果要通过不同参数并发地执行func函数，必须从不同线程调用p.apply()函数或者使用p.apply_async()
+pool_obj.apply_async(func [, args [, kwargs]]):在一个池工作进程中执行func(*args,**kwargs),然后返回结果。此方法的结果是AsyncResult类的实例，callback是可调用对象，接收输入参数。当func的结果变为可用时，将理解传递给callback。callback禁止执行任何阻塞操作，否则将接收其他异步操作中的结果。
+pool_obj.close():关闭进程池，防止进一步操作。如果所有操作持续挂起，它们将在工作进程终止前完成
+pool_obj.jion():等待所有工作进程退出。此方法只能在close（）或teminate()之后调用</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>其他方法：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>方法apply_async()和map_async（）的返回值是AsyncResul的实例obj。实例具有以下方法
+obj.get():返回结果，如果有必要则等待结果到达。timeout是可选的。如果在指定时间内还没有到达，将引发一场。如果远程操作中引发了异常，它将在调用此方法时再次被引发。
+obj.ready():如果调用完成，返回True
+obj.successful():如果调用完成且没有引发异常，返回True，如果在结果就绪之前调用此方法，引发异常
+obj.wait([timeout]):等待结果变为可用。
+obj.terminate()：立即终止所有工作进程，同时不执行任何清理或结束任何挂起工作。如果p被垃圾回收，将自动调用此函数</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>协程</strong></p>
+<p>协程：是单线程下的并发，又称微线程，纤程。英文名Coroutine。</p>
+<p>一句话说明什么是线程：<strong>协程是一种用户态的轻量级线程，即协程是由用户程序自己控制调度的。</strong></p>
+<p>协程能保留上一次调用时的状态（即所有局部状态的一个特定组合），每次过程重入时，就相当于进入上一次调用的状态，换种说法：进入上一次离开时所处逻辑流的位置。</p>
+<p>注意：</p>
+<p>　　1. python的线程属于内核级别的，即由操作系统控制调度（如单线程一旦遇到io就被迫交出cpu执行权限，切换其他线程运行）</p>
+<p>　　2. 单线程内开启协程，一旦遇到io，从应用程序级别（而非操作系统）控制切换</p>
+<p>协程优点：</p>
+<p>　　1. &nbsp;协程的切换开销更小，属于程序级别的切换，操作系统完全感知不到，因而更加轻量级</p>
+<p>　　2. 单线程内就可以实现并发的效果，最大限度地利用cpu</p>
+<p>协程缺点：</p>
+<p>　　1.协程的本质是单线程下，无法利用多核，可以是一个程序开启多个进程，每个进程内开启多个线程，每个线程内开启协程</p>
+<p>　　2.协程指的是单个线程，因而一旦协程出现阻塞，将会阻塞整个线程</p>
+<p><strong>yield实现协程并发</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import time
+ 2 def consumer():
+ 3     r=''
+ 4     while True:
+ 5         n=yield r
+ 6         if not n:
+ 7             return
+ 8         print('[CONSUMER] ←← Consuming %s...' % n)
+ 9         time.sleep(1)
+10         r='200 Ok'
+11 
+12 def produce(c):
+13     next(c) #1.启动生成器
+14     n=0
+15     while n &lt; 5:
+16         n=n+1
+17         print('[PRODUCER] →→ Producing %s...' % n)
+18         cr=c.send(n)    
+19         #2.将n传入到consumer的对象，yield接收到传入值开始执行代码，遇到yield执行代码返回r的值
+20         print('[PRODUCER] Consumer return: %s' % cr)
+21     #3.produce没有值了，关闭整个过程
+22     c.close()
+23 
+24 if __name__ == '__main__':
+25     c=consumer()    #生成生成器对象
+26     produce(c)      #执行调用</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>greenlet框架实现协程（封装yield的基础库）</h2>
+<p>greenlet机制的主要思想是：生成器函数或者协程函数中的yield语句挂起函数的执行，直到稍后使用next()或send()操作进行恢复为止。可以使用一个调度器循环在一组生成器函数之间协作多个任务。greentlet是python中实现我们所谓的"Coroutine(协程)"的一个基础库。</p>
+<p>示例1：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 from greenlet import  greenlet
+ 2 def foo():
+ 3     print('ok1')
+ 4     g2.switch() #阻断
+ 5     print('ok3')
+ 6     g2.switch()
+ 7 def bar():
+ 8     print('ok2')
+ 9     g1.switch()
+10     print('ok4')
+11 
+12 g1=greenlet(foo)    #生成foo函数的greenlet对象
+13 g2=greenlet(bar)    #生成bar函数的greenlet对象
+14 g1.switch() #1、执行g1对象，打印ok1
+15             #2、遇到g2.switch()，转到g2执行打印ok2
+16             #3、遇到g1.switch(),转到g1的阻断处继续执行打印ok3
+17             #4、遇到g2.switch()，转到g2执行打印ok4</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>示例2：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 def eat(name):
+ 2     print('%s eat food 1' %name)
+ 3     gr2.switch('bob')
+ 4     print('%s eat food 2' %name)
+ 5     gr2.switch()
+ 6 def play_phone(name):
+ 7     print('%s play 1' %name)
+ 8     gr1.switch()
+ 9     print('%s play 2' %name)
+10 
+11 gr1=greenlet(eat)
+12 gr2=greenlet(play_phone)
+13 gr1.switch(name='natasha')#可以在第一次switch时传入参数，以后都不需要</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>这种方法不会节省时间，因为不是io操作，而greenlet遇到io操作不会跳转，仍然要io阻断</p>
+<p>&nbsp;</p>
+<p><strong>基于greenlet框架的高级库gevent模块</strong></p>
+<p>gevent是第三方库，通过greenlet实现协程，其基本思想是：</p>
+<p>当一个greenlet遇到IO操作时，比如访问网络，就自动切换到其他的greenlet，等到IO操作完成，再在适当的时候切换回来继续执行。由于IO操作非常耗时，经常使程序处于等待状态，有了gevent为我们自动切换协程，就保证总有greenlet在运行，而不是等待IO。</p>
+<p>由于切换是在IO操作时自动完成，所以gevent需要修改Python自带的一些标准库，这一过程在启动时通过monkey patch完成：</p>
+<p>简单示例：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 import gevent
+ 2 def foo():
+ 3     print('ok1')
+ 4     gevent.sleep(4) #模拟io操作
+ 5     print('ok3')
+ 6 def bar():
+ 7     print('ok2')
+ 8     gevent.sleep(2)
+ 9     print('ok4')
+10 
+11 g1=gevent.spawn(foo)
+12 g2=gevent.spawn(bar)
+13 gevent.joinall([g1,g2]) #全部阻塞，或者单独一个个join</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>spawn括号内第一个参数是函数名，如foo，后面可以有多个参数，可以是位置实参或关键字实参，都是传给函数foo的</p>
+<p>注意：</p>
+<p>gevent.sleep(4)模拟的是gevent可以识别的io阻塞,</p>
+<p>而time.sleep(2)或其他的阻塞,gevent是不能直接识别的需要用下面一行代码,打补丁,就可以识别了</p>
+<div class="cnblogs_code">
+<pre>1 #补丁
+2 from gevent import monkey
+3 monkey.patch_all()</pre>
+</div>
+<p>&nbsp;</p>
+<p>必须放到被打补丁者的前面，如time，socket模块之前</p>
+<p>或者我们干脆记忆成：要用gevent，需要将补丁放到文件的开头</p>
+<p>爬虫示例：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 from gevent import monkey;monkey.patch_all()
+ 2 import gevent
+ 3 import requests
+ 4 import time
+ 5 
+ 6 def get_page(url):
+ 7     print('GET: %s' %url)
+ 8     response=requests.get(url)
+ 9     if response.status_code == 200:
+10         print('%d bytes received from %s' %(len(response.text),url))
+11 
+12 
+13 start_time=time.time()
+14 gevent.joinall([
+15     gevent.spawn(get_page,'https://www.python.org/'),
+16     gevent.spawn(get_page,'https://www.yahoo.com/'),
+17     gevent.spawn(get_page,'https://github.com/'),
+18 ])
+19 stop_time=time.time()
+20 print('run time is %s' %(stop_time-start_time))</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7252285,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;5b72a92b-b09c-436e-ca05-08d49c352df2&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/lidagen/" target="_blank"><img src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/20170518154211.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/lidagen/">李大根er</a><br>
+            <a href="http://home.cnblogs.com/u/lidagen/followees">关注 - 9</a><br>
+            <a href="http://home.cnblogs.com/u/lidagen/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;5b72a92b-b09c-436e-ca05-08d49c352df2&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7252285,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(7252285,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/lidagen/p/7252247.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/lidagen/p/7252247.html" title="发布于2017-07-28 19:27">python基础之Event对象、队列和多进程基础</a><br><a href="http://www.cnblogs.com/lidagen/p/7252287.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/lidagen/p/7252287.html" title="发布于2017-07-28 19:38">python基础之IO模型</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2017-07-28 19:37</span> <a href="http://www.cnblogs.com/lidagen/">李大根er</a> 阅读(<span id="post_view_count">843</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=7252285" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/lidagen/p/7252285.html#" onclick="AddToWz(7252285);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=356379,cb_entryId=7252285,cb_blogApp=currentBlogApp,cb_blogUserGuid='5b72a92b-b09c-436e-ca05-08d49c352df2',cb_entryCreatedDate='2017/7/28 19:37:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/lidagen/p/7252285.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/lidagen/p/7252285.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.yunqi2050.com/#/index" target="_blank">【活动】2050 大会 - 年青人因科技而团聚（5.26-27杭州·云栖小镇）</a><br><a href="http://clickc.admaster.com.cn/c/a105960,b2436453,c1705,i0,m101,8a1,8b2,h" target="_blank">【活动】华为云全新一代云服务器·限时特惠5.6折</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.914464.914464.914464" target="_blank">【活动】腾讯云招募自媒体，共享百万资源包</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);" href="https://cloud.tencent.com/act/free?fromSource=gwzcw.914466.914466.914466" target="_blank"><img width="300" height="250" src="./python基础之进程间通信、进程池、协程 - 李大根er - 博客园_files/24442-20180423213639985-818425333.jpg" alt="腾讯云0423"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/595101/" target="_blank">小扎夫妇承诺资助1500万美元！改善人类健康和疾病</a><br> ·  <a href="https://news.cnblogs.com/n/595099/" target="_blank">谷歌发Android福利：不装应用就能收听播客或订阅频道内容</a><br> ·  <a href="https://news.cnblogs.com/n/595098/" target="_blank">“社会人小猪佩奇”为啥这么火？背后套路很深</a><br> ·  <a href="https://news.cnblogs.com/n/595097/" target="_blank">阿里巴巴CEO张勇：全球化不是砸钱搞采购 而是培育当地新生态</a><br> ·  <a href="https://news.cnblogs.com/n/595095/" target="_blank">中兴供应商：放弃对合同违约追偿权利 已交付设备可原价收回</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/593985/" target="_blank">如何识别人的技术能力和水平？</a><br> ·  <a href="http://kb.cnblogs.com/page/575255/" target="_blank">写给自学者的入门指南</a><br> ·  <a href="http://kb.cnblogs.com/page/578690/" target="_blank">和程序员谈恋爱</a><br> ·  <a href="http://kb.cnblogs.com/page/585734/" target="_blank">学会学习</a><br> ·  <a href="http://kb.cnblogs.com/page/588938/" target="_blank">优秀技术人的管理陷阱</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/lidagen/">李大根er</a><br>园龄：<a href="https://home.cnblogs.com/u/lidagen/" title="入园时间：2017-05-18">11个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/lidagen/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/lidagen/followees/">9</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;5b72a92b-b09c-436e-ca05-08d49c352df2&#39;)">+加关注</a></div><script>getFollowStatus('5b72a92b-b09c-436e-ca05-08d49c352df2')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/03/01&#39;);return false;">&lt;</a></td><td align="center">2018年4月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/05/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td></tr><tr><td class="CalWeekendDay" align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td class="CalWeekendDay" align="center">7</td></tr><tr><td class="CalWeekendDay" align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td class="CalWeekendDay" align="center">14</td></tr><tr><td class="CalWeekendDay" align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td class="CalWeekendDay" align="center">21</td></tr><tr><td class="CalWeekendDay" align="center">22</td><td align="center">23</td><td align="center">24</td><td class="CalTodayDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td class="CalWeekendDay" align="center">28</td></tr><tr><td class="CalWeekendDay" align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/lidagen/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/lidagen/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/lidagen/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/lidagen/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/lidagen/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/lidagen/archive/2017/08.html">2017年8月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/lidagen/archive/2017/07.html">2017年7月 (17)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/lidagen/archive/2017/06.html">2017年6月 (21)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/lidagen/archive/2017/05.html">2017年5月 (8)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lidagen/p/7117471.html#3828120">1. Re:python基础之继承派生、组合、接口和抽象类</a></li>
+        <li class="recent_comment_body">@bbs_ld什么神头鬼脸的？...</li>
+        <li class="recent_comment_author">--李大根er</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lidagen/p/7117471.html#3828021">2. Re:python基础之继承派生、组合、接口和抽象类</a></li>
+        <li class="recent_comment_body">"加里敦"  给赋的值，倍儿洋气</li>
+        <li class="recent_comment_author">--bbs_ld</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/lidagen/p/7090777.html">1. python基础之import模块导入和包的调用(5573)</a></li><li><a href="http://www.cnblogs.com/lidagen/p/7252285.html">2. python基础之进程间通信、进程池、协程(843)</a></li><li><a href="http://www.cnblogs.com/lidagen/p/7237674.html">3. python基础之多线程锁机制(806)</a></li><li><a href="http://www.cnblogs.com/lidagen/p/7252247.html">4. python基础之Event对象、队列和多进程基础(597)</a></li><li><a href="http://www.cnblogs.com/lidagen/p/7117471.html">5. python基础之继承派生、组合、接口和抽象类(455)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/lidagen/p/7117471.html">1. python基础之继承派生、组合、接口和抽象类(2)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/lidagen/p/7252285.html">1. python基础之进程间通信、进程池、协程(1)</a></li><li><a href="http://www.cnblogs.com/lidagen/p/7117471.html">2. python基础之继承派生、组合、接口和抽象类(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 李大根er
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>
