@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+<h1>fuckyou</h1>
+{% block t1 %}
+<h1>{{ post.get_abs_path }}</h1>
+{% endblock t1%}
+
+{% block b2 %}
+{{ post.body|safe }}
+{% endblock b2 %}

@@ -21,5 +21,5 @@ class Post(models.Model):
         return 'exception,Acess Forbidden'
     
     def get_abs_path(self):
-        return reverse('blog:blog_index', kwargs={'pk': self.pk})
+        return reverse('blog:blog_test', kwargs={'pk': self.pk})
     

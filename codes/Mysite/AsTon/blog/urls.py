@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from . import views
 #from django.conf.urls.static import static
 #from django.conf import settings
+app_name = 'blog'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.blog_index),
-    path('hello/(?P<pk>\d+)/', views.blog_index, name='blog_index'),
+    url('post/(?P<pk>[0-9]+)/', views.blog_test, name='blog_test'),
 ]
 #urlpatterns += static('/upload/', document_root=settings.MEDIA_ROOT)
