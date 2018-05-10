@@ -2,27 +2,26 @@ import win32gui
 import win32con
 import win32api
 import time
+'''
+what's more:change to multiprocess to improve efficient
+            coding more pretty and observe the standard
+'''    
+
 titles = set()
 search = set()
 add_friends = []
-def foo(hwnd,mouse): 
-    if win32gui.IsWindow(hwnd) and win32gui.IsWindowEnabled(hwnd) and win32gui.IsWindowVisible(hwnd):   
-        #print(win32gui.GetWindowText(hwnd), hwnd)
+
+
+def get_all_window(hwnd, mouse): 
+    if win32gui.IsWindow(hwnd) and win32gui.IsWindowEnabled(hwnd) and \
+        win32gui.IsWindowVisible(hwnd):
         titles.add(win32gui.GetWindowText(hwnd))
         if win32gui.GetWindowText(hwnd) == "查找":
             search.add(hwnd)
         if "添加好友" in win32gui.GetWindowText(hwnd):
             add_friends.append([hwnd, win32gui.GetWindowRect(hwnd)])
             print('CurrentHwnd', hwnd)
-win32gui.EnumWindows(foo, 0) 
-
-win32api.SetCursorPos((50, 730))
-win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
-#print('===============================================')
-time.sleep(1)
-win32gui.EnumWindows(foo, 0)
-
+            
 def send_message(af):
     w_hwnd = af[0]
     w1, h1, w2, h2 = af[1]
@@ -50,6 +49,12 @@ def add():
         send_message(add_friends.pop())
         #time.sleep(1)
 
+win32gui.EnumWindows(get_all_window, 0)
+win32api.SetCursorPos((50, 730))
+win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
+time.sleep(1)
+win32gui.EnumWindows(get_all_window, 0)        
 ss = list(search)
 if search:
     win32gui.SetWindowPos(ss[0], 0, 380, 0, 1000, 600, win32con.SWP_SHOWWINDOW)
@@ -70,9 +75,8 @@ if search:
                 win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
                 win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
                 time.sleep(0.3)
-                win32gui.EnumWindows(foo, 0)
+                win32gui.EnumWindows(get_all_window, 0)
                 add()
-                
                 x_pos += 220
             y_pos += 90
         

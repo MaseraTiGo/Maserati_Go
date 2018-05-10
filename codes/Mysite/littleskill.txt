@@ -1,0 +1,7 @@
+No1.
+    cmd: python manage.py sqlmigrate app 0001
+    fun: lookup for source sql code.
+
+No2.
+    cmd: python manage.py shell
+    fun: get in interactive environment

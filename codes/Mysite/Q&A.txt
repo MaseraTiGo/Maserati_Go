@@ -1,0 +1,13 @@
+#some trubles I met during doing this fuck simple web
+No.1
+    the path, It's really almost drived me creazy!
+    finally, I found ,I just needed to set the MEDIA_URL'value as my project name,that't the root ,all will be ok, suck as the flow things:
+    urls.py
+    urlpatterns += static('/upload/', document_root=settings.MEDIA_ROOT)
+
+    settings.py
+    MEDIA_URL = '/AsTon/'  
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'martin/media')
+
+No.2    
+    missing position argument 'on_delete',just need add 'on_delete=models.CASCADE'

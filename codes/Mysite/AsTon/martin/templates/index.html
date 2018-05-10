@@ -1,0 +1,6 @@
+{% for movie in movies %}
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.summary }}</p>
+    <img src = "{{ movie.pic }}" />picture
+    <p>{{ movie.date_new }}</p>
+{% endfor %}
