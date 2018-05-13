@@ -14,14 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from martin import views
-from django.conf.urls.static import static
-from django.conf import settings
+from django.urls import path
+from django.conf.urls import url
+from . import views
+#from django.conf.urls.static import static
+#from django.conf import settings
+app_name = 'comments'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
-    path('', include('comments.urls')),
-    path('upload/', views.movie_index),
+    url('comment/(?P<post_pk>[0-9]+)/', views.post_comment, name='post_comment'),
 ]
-#urlpatterns += static('/a/', document_root=settings.MEDIA_ROOT)
+#urlpatterns += static('/upload/', document_root=settings.MEDIA_ROOT)

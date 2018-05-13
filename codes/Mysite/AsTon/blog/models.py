@@ -23,3 +23,6 @@ class Post(models.Model):
     def get_abs_path(self):
         return reverse('blog:blog_test', kwargs={'pk': self.pk})
     
+    def get_absolute_url(self):
+        return reverse('blog:blog_test', kwargs={'pk': self.pk})
+    
