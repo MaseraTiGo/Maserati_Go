@@ -13,7 +13,7 @@ def post_comment(request, post_pk):
             comment.post = post
             comment.save()
             return redirect(post)
-         else:
+        else:
             # 检查到数据不合法，重新渲染详情页，并且渲染表单的错误。
             # 因此我们传了三个模板变量给 detail.html，
             # 一个是文章（Post），一个是评论列表，一个是表单 form

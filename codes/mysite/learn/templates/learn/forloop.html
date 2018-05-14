@@ -1,0 +1,8 @@
+{% for i in test %}
+<h1>{{ i }}</h1>
+{% empty %}
+<h1>fucking empty</h1>
+{% endfor %}
+<h1>{{ request.path }}</h1>
+<h1>{{ request.user.username }}</h1>
+<h1>{{ request.GET.urlencode }}</h1>
