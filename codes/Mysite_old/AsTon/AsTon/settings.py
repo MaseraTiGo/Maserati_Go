@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'AsTon.wsgi.application'
+WSGI_APPLICATION = 'AsTon.wsgi.application' 
 
 
 # Database
