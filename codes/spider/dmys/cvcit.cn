@@ -1,0 +1,684 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="cache-control" content="no-siteapp">
+<title>大漠影视 - 在线免费高清电影！</title>
+<meta name="keywords" content="电影,视频大全,在线高清电影,付费电影,免费电影,电视剧,电影,在线观看,VIP高清电影直播">
+<meta name="description" content="大漠影视，是专门做电视剧,电影等在线播放服务，本页面提供电影的相关内容。">
+<link rel="stylesheet" href="style/css/bootstrap.min.css" />
+<link href="style/css/swiper.min.css" rel="stylesheet" type="text/css" >		
+<link href="style/font/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="style/css/blackcolor.css" rel="stylesheet" type="text/css" />
+<link href="style/css/style.min.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<script type='text/javascript' src="style/js/swiper.min.js"></script>
+	
+<!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+</head>
+<body class="index">
+<!--<script type='text/javascript' src="http://cvcit.cn/style/js/system.js"></script>-->
+<script src="http://cvcit.cn/js/jquery.min.js"></script>
+<div class="hy-head-menu">
+        <div class="container">
+            <div class="row">
+                <div class="item">
+                    <div class="logo">
+                        <a class="hidden-sm hidden-xs" href="http://cvcit.cn/"><img src="/uploadfile/image/20180418/20180418131430_85004.png" /></a>
+                    </div>
+                    <div class="search hidden-sm">
+                        <form id="ff-search" role="search" action="http://cvcit.cn/seacher.php" method="post">
+                            <input class="form-control" placeholder="输入影片关键词..." type="text" id="ff-wd" name="wd" required="">
+                            <input type="submit" class="hide"><a href="javascript:" class="btns" title="搜索" onClick="$('#ff-search').submit();"><i class="icon iconfont icon-search"></i></a></form>
+                    </div>
+                    <ul class="menulist hidden-xs">
+					<li id="nav-index"><a href="http://cvcit.cn/">首页</a></li>
+					<li id="nav-tv"><a href="http://cvcit.cn/movie.php?m=/dianying/list.php?cat=all&pageno=1">电影</a></li>
+					<li id="nav-dianying"><a href="http://cvcit.cn/tv.php?u=/dianshi/list.php?cat=all&pageno=1">电视剧</a></li>
+					<li id="nav-dongman"><a href="http://cvcit.cn/dongman.php?m=/dongman/list.php?cat=all&pageno=1">动漫</a></li>
+					<li id="nav-zongyi"><a href="http://cvcit.cn/zongyi.php?m=/zongyi/list.php?cat=all&pageno=1">综艺</a></li>
+					<li id="nav-down"><a href="https://shang.qq.com/wpa/qunwpa?idkey=3629f69a6917971eff6c4675bc4292305f403e8a556207c71e6daccabb315b73" target="_blank">加入QQ群</a></li>
+	
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+<div class="row"  style="margin-top:10px"><p style="white-space:normal;">
+	<span style="color:#000000;">为了持续发展,望各位网友帮忙宣传下本站,可以去经常上的论坛,微博,QQ群,朋友圈等发下本站网址，小编在此谢谢了。获取更多免费视频，请加QQ群432444197</span> 
+</p></div>
+  <div class="row">
+		<div class="hy-layout clearfix">
+			<div class="col-lg-7 col-md-6 col-sm-12">
+				<div class="swiper-container hy-slide">
+					<div class="swiper-wrapper">
+																		
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/PbhrbH7lRzbqN3.html" title="温暖的弦" style="padding-top: 60%; background: url(http://p6.qhimg.com/t0179ace506ed338485.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《温暖的弦》终极大boss南弦妈来搅局！卫星夫妇遭遇最大阻碍</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/PrZtaX7lRG0pMH.html" title="宫心计2深宫计" style="padding-top: 60%; background: url(http://p1.qhimg.com/t01b63534ce7b5cec2a.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《宫心计2深宫计》胡定欣刘心悠再续TVB经典</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/PLhrcX7lRG0lMH.html" title="楼外楼" style="padding-top: 60%; background: url(http://p9.qhimg.com/t01670833566565650a.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《楼外楼》秦海璐张铎掀乱世商战</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/m/fafkZBH4RXf2Sh.html" title="无问西东" style="padding-top: 60%; background: url(http://p0.qhimg.com/t017da4b73568672637.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《无问西东》众明星演绎不可思议的传奇青春</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/QbNvb07lRzbuOH.html" title="归去来" style="padding-top: 60%; background: url(http://p6.qhimg.com/t01f59e3a561be5f8cd.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《归去来》初心不变！清澈CP在爱情与正义间痛苦抉择</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/va/Z8IocXNxAJc5DD.html" title="极限挑战 第四季" style="padding-top: 60%; background: url(http://p0.qhimg.com/t013f8e54e688f7490b.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《极限挑战 第四季》男人帮最烧脑挑战！小沈阳孙红雷成“二傻”</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/PLpoaX7lRzXtM3.html" title="萌妻食神" style="padding-top: 60%; background: url(http://p1.qhimg.com/t01e88e82581db337b0.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《萌妻食神》腹黑霸总杠上逗趣娇妻</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/PbJob07lRzbrN3.html" title="硬骨头之绝地归途" style="padding-top: 60%; background: url(http://p6.qhimg.com/t01fcba002cb6ae15aa.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《硬骨头之绝地归途》中国版敢死队 正邪博弈殊死较量</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/va/ZsEob6Jv7JQ3Dz.html" title="快乐大本营" style="padding-top: 60%; background: url(http://p0.qhimg.com/t012488bc5b26902de3.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《快乐大本营》马栏山“4F”叫板新F4 沈月吴昕重演偶像剧致敬经典</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/va/ZcImcHNy72A6Dj.html" title="放开我北鼻 第3季" style="padding-top: 60%; background: url(http://p0.qhimg.com/t0130ad5a43ed429d10.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《放开我北鼻 第3季》北鼻家族暖萌回归！新哥哥一见萌娃瞬间懵了</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/va/Y8gnbXNxAJg7DT.html" title="高能少年团" style="padding-top: 60%; background: url(http://p0.qhimg.com/t017d0248485c9b3b7a.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《高能少年团》少年团变校园主播</span>
+						    </a>
+						</div>	            					
+						</div>
+												
+						<div class="swiper-slide">
+						<div class="hy-video-slide">
+							<a class="videopic" href="/play.php?play=/tv/QLluan7lRzbsOX.html" title="结爱" style="padding-top: 60%; background: url(http://p6.qhimg.com/t01703e649bd8c97958.jpg)  no-repeat; background-position:50% 50%; background-size: cover;">	
+								<span class="title">《结爱》腹黑狐狸与呆萌少女的千年初恋</span>
+						    </a>
+						</div>	            					
+						</div>
+						
+					</div>
+					<div class="swiper-button-next hidden-xs">
+						<i class="icon iconfont icon-right"></i>
+					</div>
+					<div class="swiper-button-prev hidden-xs">
+						<i class="icon iconfont icon-back"></i>
+					</div>
+					<div class="swiper-pagination">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-6 col-sm-12 padding-0">
+				<div class="hy-index-menu clearfix">
+					<div class="item">
+						<ul class="clearfix">
+							<li><a href="./movie.php?m=/dianying/list.php?cat=all&pageno=1"><i class="icon iconfont icon-menu1 text-color"></i><span>最新电影</span></a></li>							
+							<li><a href="./vlist.php?cid=0"><i class="icon iconfont icon-ic_mymatch_ranking text-color"></i><span>抢先片源</span></a></li>
+							<li><a href="./tv.php?u=/dianshi/list.php?cat=all&pageno=1"><i class="icon iconfont icon-update text-color"></i><span>电视剧</span></a></li>
+							<li><a href="./login.php"><i class="icon iconfont icon-member1 text-color"></i><span>会员中心</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="hy-index-tags hidden-md clearfix">
+					<div class="item">
+						<ul class="clearfix">
+							<li><a href="./movie.php?m=/dianying/list.php?cat=100&pageno=1">爱情</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=106&pageno=1">动作</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=102&pageno=1">恐怖</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=104&pageno=1">科幻</a></li>							
+							<li><a href="./movie.php?m=/dianying/list.php?cat=112&pageno=1">剧情</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=105&pageno=1">犯罪</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=113&pageno=1">奇幻</a></li>
+							<li><a href="./movie.php?m=/dianying/list.php?cat=108&pageno=1">战争</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="hy-right-qrcode hidden-sm hidden-xs">
+					<div class="item">
+						<dl class="clearfix">
+							<dt><img src="/uploadfile/image/20180420/20180420143118_11758.jpg"></dt>
+							<dd>
+							<h4>扫二维码，加入QQ群</h4>
+							<p class="text-muted">
+								免费获取“黄金会员”激活码
+							</p>
+							<p class="margin-0 text-muted">
+								http://cvcit.cn/							</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--抢先看-->
+<div class="row"  style="margin-top:10px"></div>
+
+			<div class="hy-layout clearfix">
+			<div class="hy-video-head">
+				<h3 class="margin-0"><i class="icon iconfont icon-update text-color"></i> 抢先看</h3>
+				<ul class="pull-right">
+					<li class="active"><a href="vlist.php?cid=0" class="text-muted">更多 <i class="icon iconfont icon-right"></i></a></li>
+				</ul>
+			</div>
+			<div class="clearfix">
+				<div class="hy-video-list cleafix">
+					<div class="item">
+					    
+			<div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./bplay.php?bf=18" title="后来的我们" src="http://img.5252zy.com/upload/vod/2018-04-29/201804291524933296.jpg" style="background: url(http://img.5252zy.com/upload/vod/2018-04-29/201804291524933296.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">电影</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./bplay.php?bf=18">后来的我们</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs">井柏然周冬雨田壮壮苏小明 </div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./bplay.php?bf=16" title="复仇者联盟3" src="http://pic.china-gif.com/pic/upload/vod/2018-04/15248049850.jpg" style="background: url(http://pic.china-gif.com/pic/upload/vod/2018-04/15248049850.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">电影</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./bplay.php?bf=16">复仇者联盟3</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs">小罗伯特·唐尼,克里斯·海姆斯沃斯,克里斯·埃文斯,马克·鲁弗洛</div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./bplay.php?bf=15" title="头号玩家" src="http://pic.china-gif.com/pic/upload/vod/2018-03/15224343768.jpg" style="background: url(http://pic.china-gif.com/pic/upload/vod/2018-03/15224343768.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">电影</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./bplay.php?bf=15">头号玩家</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs">泰伊·谢里丹, 奥利维亚·库克,本·门德尔森,马克·里朗斯</div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./bplay.php?bf=9" title="樊登读书会" src="/uploadfile/image/20180418/20180418175657_21355.png" style="background: url(/uploadfile/image/20180418/20180418175657_21355.png) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">求知学习</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./bplay.php?bf=9">樊登读书会</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs">樊登</div>
+						</div>						
+						
+				
+			</div></div></div>
+			<div class="hy-video-footer visible-xs clearfix">
+				<a href="vlist.php?cid=0" class="text-muted">查看更多 <i class="icon iconfont icon-right pull-right"></i></a>
+			</div>
+		</div>
+				<!--抢先看-->
+		<!--电影-->
+        <div class="row"  style="margin-top:10px"></div>
+		<div class="hy-layout clearfix">
+			<div class="hy-video-head">
+				<ul class="pull-right">
+					<li class="active"><a href="movie.php?m=/dianying/list.php?cat=all&pageno=1" class="text-muted">更多 <i class="icon iconfont icon-right"></i></a></li>
+				</ul>
+				<h3 class="margin-0"><i class="icon iconfont icon-film text-color"></i>电影</h3>
+			</div>
+			<div class="clearfix">
+				<div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/hKnkZRH4QnH1Tx.html" title="空天猎" src="http://p0.qhimg.com/t01e5129ec7f3201c4f.jpg" style="background: url(http://p0.qhimg.com/t01e5129ec7f3201c4f.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2017</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/hKnkZRH4QnH1Tx.html">空天猎</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：范冰冰 李晨 王千源 李佳航 李晨浩</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/haTmYRH4R0j0TR.html" title="暴裂无声" src="http://p0.qhimg.com/t01011926f078fa7039.jpg" style="background: url(http://p0.qhimg.com/t01011926f078fa7039.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/haTmYRH4R0j0TR.html">暴裂无声</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：宋洋 姜武 袁文康 谭卓 王梓尘</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/f6jrahH4SHj8Sh.html" title="黄飞鸿之南北英雄" src="http://p0.qhimg.com/t01eb75954ac5b4bfc2.jpg" style="background: url(http://p0.qhimg.com/t01eb75954ac5b4bfc2.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/f6jrahH4SHj8Sh.html">黄飞鸿之南北英雄</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：赵文卓 唐文龙 维妮 李璐兵 陈辰</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/g6frZRH4Rnn6UB.html" title="21克拉" src="http://p0.qhimg.com/t019457e536764bef68.jpg" style="background: url(http://p0.qhimg.com/t019457e536764bef68.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/g6frZRH4Rnn6UB.html">21克拉</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：郭京飞 迪丽热巴 大鹏 包贝尔 迪丽热巴·迪力木拉提</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/hKvjYhH4RHX3Sh.html" title="红海行动" src="http://p0.qhimg.com/t014e821298dacb9dd4.jpg" style="background: url(http://p0.qhimg.com/t014e821298dacb9dd4.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/hKvjYhH4RHX3Sh.html">红海行动</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：张译 杜江 黄景瑜 海清 蒋璐霞</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/gqPlYxH4Rnn3Tx.html" title="二代妖精之今生有幸" src="http://p0.qhimg.com/t010a53fbc05b92fdd8.jpg" style="background: url(http://p0.qhimg.com/t010a53fbc05b92fdd8.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2017</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/gqPlYxH4Rnn3Tx.html">二代妖精之今生有幸</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：冯绍峰 刘亦菲 李光洁 郭京飞 焦俊艳</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/hKbrYxH4RnT2UB.html" title="黑豹" src="http://p0.qhimg.com/t017f66490b427c38f0.jpg" style="background: url(http://p0.qhimg.com/t017f66490b427c38f0.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/hKbrYxH4RnT2UB.html">黑豹</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：查德维克·博斯曼 露皮塔·尼永奥 迈克尔·B·乔丹 丹娜·奎里拉 迈克尔·</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/hqfmZkD5Qnn1TB.html" title="英雄本色" src="http://p0.qhimg.com/t01fc7e5ca7b0fdff04.jpg" style="background: url(http://p0.qhimg.com/t01fc7e5ca7b0fdff04.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2017</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/hqfmZkD5Qnn1TB.html">英雄本色</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：周润发 狄龙 张国荣 李子雄 朱宝意</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/f6PiZRH4SHfATh.html" title="亚洲涉嫌" src="http://p1.qhimg.com/d/dy_eb6456e37e468b3c36b2e2929a2e4128." style="background: url(http://p1.qhimg.com/d/dy_eb6456e37e468b3c36b2e2929a2e4128.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2016</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/f6PiZRH4SHfATh.html">亚洲涉嫌</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：迈克尔·加·怀特 John Edward Lee Byron Gibson 琵姆·布贝尔 Sahajak Boonthanakit</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/gaLqZhH4RHL8SB.html" title="妖铃铃" src="http://p0.qhimg.com/t01ab08ddb240bcab95.jpg" style="background: url(http://p0.qhimg.com/t01ab08ddb240bcab95.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2017</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/gaLqZhH4RHL8SB.html">妖铃铃</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：吴君如 沈腾 岳云鹏 张译 姜逸磊</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/fafkZBH4RXf2Sh.html" title="无问西东" src="http://p0.qhimg.com/d/dy_c27ae446cbf5787200704ed9b0d9c4ee.jpg" style="background: url(http://p0.qhimg.com/d/dy_c27ae446cbf5787200704ed9b0d9c4ee.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/fafkZBH4RXf2Sh.html">无问西东</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：章子怡 黄晓明 张震 王力宏 陈楚生</div>
+					</div><div class="col-md-2 col-sm-3 col-xs-4">
+						<a class="videopic lazy xtcms" href="./play.php?play=/m/f6XqZhH4SHj1TB.html" title="穿越烽火线2" src="http://p5.qhimg.com/d/dy_c3fb171ba349888cb9428db4e0e8b3d6." style="background: url(http://p5.qhimg.com/d/dy_c3fb171ba349888cb9428db4e0e8b3d6.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018</span></a>
+						<div class="title">
+							<h5 class="text-overflow"><a href="./play.php?play=/m/f6XqZhH4SHj1TB.html">穿越烽火线2</a></h5>
+						</div>
+						<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：林杨 杨曼玉 侯嵩松 蔡玉洁 赵子翔</div>
+					</div>			
+
+
+				<div class="hy-video-footer visible-xs clearfix">
+					<a href="movie.php?m=/dianying/list.php?cat=all&pageno=1" class="text-muted">查看更多 <i class="icon iconfont icon-right pull-right"></i></a>
+				</div>
+			</div>
+		</div>		<!--电影-->
+		<!--电视剧-->
+        <div class="row"  style="margin-top:10px"></div>
+		<div class="hy-layout clearfix">
+			<div class="hy-video-head">
+				<ul class="pull-right">
+					<li class="active"><a href="./tv.php?u=/dianshi/list.php?cat=all&pageno=1" class="text-muted">更多 <i class="icon iconfont icon-right"></i></a></li>
+				</ul>
+				<h3 class="margin-0"><i class="icon iconfont icon-show text-color"></i>电视剧</h3>
+			</div>
+			<div class="clearfix">
+			<div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PbhrbH7lRzbqN3.html" title="温暖的弦" src="http://p7.qhimg.com/d/dy_2ffe964d668fadea01bf641a05f0927a.jpg" style="background: url(http://p7.qhimg.com/d/dy_2ffe964d668fadea01bf641a05f0927a.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">48集全</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PbhrbH7lRzbqN3.html">温暖的弦</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：张翰 张钧甯 张嘉倪 经超 周奇奇</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/QbNvb07lRzbuOH.html" title="归去来" src="http://p5.qhimg.com/t01bd96504e4c13c38b.jpg" style="background: url(http://p5.qhimg.com/t01bd96504e4c13c38b.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至25集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/QbNvb07lRzbuOH.html">归去来</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：唐嫣 罗晋 许龄月 于济玮 王天辰</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PbJob07lRzbrN3.html" title="硬骨头之绝地归途" src="http://p6.qhimg.com/d/dy_123d6c6f6d02333bf7d850b1d6dc5b6b.jpg" style="background: url(http://p6.qhimg.com/d/dy_123d6c6f6d02333bf7d850b1d6dc5b6b.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至44集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PbJob07lRzbrN3.html">硬骨头之绝地归途</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：韩栋 徐小飒 郭东文 宫海滨 张润</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PLRsb07lRzbsNX.html" title="爱情的边疆" src="http://p9.qhimg.com/d/dy_e2a6324e47e4d16067c88706f510e0a1." style="background: url(http://p9.qhimg.com/d/dy_e2a6324e47e4d16067c88706f510e0a1.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至37集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PLRsb07lRzbsNX.html">爱情的边疆</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：殷桃 王雷 李乃文 帝莫西·谢尔盖耶维奇 徐嘉雯</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PLVsaH7lRzbsN3.html" title="泡沫之夏" src="http://p0.qhimg.com/t017a0d2af37d192ab9.jpg" style="background: url(http://p0.qhimg.com/t017a0d2af37d192ab9.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至20集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PLVsaH7lRzbsN3.html">泡沫之夏</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：张雪迎 秦俊杰 黄圣池 陈欣予 黄德毅</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/QLRqaX7lRG0nMX.html" title="回家的路有多远" src="http://p5.qhimg.com/d/dy_dea226970ced8b924c098ce510858751.jpg" style="background: url(http://p5.qhimg.com/d/dy_dea226970ced8b924c098ce510858751.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至22集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/QLRqaX7lRG0nMX.html">回家的路有多远</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：闫学晶 孙涛 黄诗佳 高晶 王梓权</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/QLVob07lRzbsMX.html" title="誓言" src="http://p8.qhimg.com/d/dy_d3ac0f0b857e8dd518532a494372f60f.jpg" style="background: url(http://p8.qhimg.com/d/dy_d3ac0f0b857e8dd518532a494372f60f.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至37集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/QLVob07lRzbsMX.html">誓言</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：贾乃亮 李晟 秦昊 刘奕君 刘威</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PLpoaX7lRzXtM3.html" title="萌妻食神" src="http://p9.qhimg.com/d/dy_b4c436254fb9a9eb3492611a23e4ed60." style="background: url(http://p9.qhimg.com/d/dy_b4c436254fb9a9eb3492611a23e4ed60.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至36集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PLpoaX7lRzXtM3.html">萌妻食神</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：徐志贤 种丹妮 赵健 柴格 张奕聪</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/QLluan7lRzbsOX.html" title="结爱·千岁大人的初恋" src="http://p7.qhimg.com/d/dy_ca516ce26f1b272d5b92d1a7e5ad1e0b." style="background: url(http://p7.qhimg.com/d/dy_ca516ce26f1b272d5b92d1a7e5ad1e0b.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至16集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/QLluan7lRzbsOX.html">结爱·千岁大人的初恋</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：宋茜 黄景瑜 徐开骋 李燊 江奇霖</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/RbNraX7lRz8nMH.html" title="三国机密之潜龙在渊" src="http://p5.qhimg.com/d/dy_fe35a6fb09a0a7a1355d7fbac5e0f932." style="background: url(http://p5.qhimg.com/d/dy_fe35a6fb09a0a7a1355d7fbac5e0f932.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">54集全</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/RbNraX7lRz8nMH.html">三国机密之潜龙在渊</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：马天宇 韩东君 万茜 董洁 王阳明</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/PLhrcX7lRG0lMH.html" title="楼外楼" src="http://p9.qhimg.com/d/dy_52ccabb97cf50eeb25c38ffc2fa6199c.jpg" style="background: url(http://p9.qhimg.com/d/dy_52ccabb97cf50eeb25c38ffc2fa6199c.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至16集</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/PLhrcX7lRG0lMH.html">楼外楼</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：秦海璐 张铎 叶璇 蒋毅 奚美娟</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/tv/Pbdpb07lRzbpMH.html" title="哦！我的皇帝陛下" src="http://p8.qhimg.com/d/dy_02d2ec296cae61f41b8c5b1852442129." style="background: url(http://p8.qhimg.com/d/dy_02d2ec296cae61f41b8c5b1852442129.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">21集全</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/tv/Pbdpb07lRzbpMH.html">哦！我的皇帝陛下</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">主演：谷嘉诚 赵露思 伍嘉成 肖战 彭楚粤</div>
+				</div>				<div class="hy-video-footer visible-xs clearfix">
+					<a href="./tv.php?m=/dianshi/list.php?cat=all&pageno=1" class="text-muted">查看更多 <i class="icon iconfont icon-right pull-right"></i></a>
+				</div>
+			</div>
+		</div>		<!--电视剧-->
+		<!--综艺-->
+        <div class="row"  style="margin-top:10px"></div>
+		<div class="hy-layout clearfix">
+			<div class="hy-video-head">
+				<ul class="pull-right">
+					<li class="active"><a href="./zongyi.php?m=/zongyi/list.php?cat=all&pageno=1" class="text-muted">更多 <i class="icon iconfont icon-right"></i></a></li>
+				</ul>
+				<h3 class="margin-0"><i class="icon iconfont icon-mallanimation text-color"></i>综艺</h3>
+			</div>
+			<div class="clearfix">
+				  <div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/ZsEob6Jv7JQ3Dz.html" title="快乐大本营" src="http://p0.qhimg.com/t016ac3d4c9b6a0be35.jpg" style="background: url(http://p0.qhimg.com/t016ac3d4c9b6a0be35.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-26期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/ZsEob6Jv7JQ3Dz.html">快乐大本营</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">沈月吴昕重演偶像剧致敬经典</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/Y85nbnNx8pAADj.html" title="明星大侦探 第三季" src="http://p4.qhimg.com/d/dy_8fdd467c33252d862b13755ffa0000bb.jpg" style="background: url(http://p4.qhimg.com/d/dy_8fdd467c33252d862b13755ffa0000bb.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-01-26期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/Y85nbnNx8pAADj.html">明星大侦探 第三季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">13期：金条大劫案</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/aMcqaXNxAJQ3ET.html" title="妈妈是超人 第三季" src="http://p1.qhimg.com/d/dy_850677c44d5e656e7d06f7c6f0f1a1df.jpg" style="background: url(http://p1.qhimg.com/d/dy_850677c44d5e656e7d06f7c6f0f1a1df.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-24期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/aMcqaXNxAJQ3ET.html">妈妈是超人 第三季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第9期：安迪照顾安麟哥哥力Max</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/Zc5pbXNxAJc3Dz.html" title="奔跑吧 第2季" src="http://p0.qhimg.com/d/dy_48450de8a672534a16efd723d1433790.jpg" style="background: url(http://p0.qhimg.com/d/dy_48450de8a672534a16efd723d1433790.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-25期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/Zc5pbXNxAJc3Dz.html">奔跑吧 第2季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第7期：邓超鹿晗背降落伞跳远</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/YsElcnNxAJc4ED.html" title="向往的生活 第二季" src="http://p6.qhimg.com/d/dy_8c457fb83c9854058fd526af633284fc.jpg" style="background: url(http://p6.qhimg.com/d/dy_8c457fb83c9854058fd526af633284fc.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-25期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/YsElcnNxAJc4ED.html">向往的生活 第二季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第6期：王珞丹秀花式滑板</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/Z8IocXNxAJc5DD.html" title="极限挑战 第四季" src="http://p6.qhimg.com/d/dy_ed41aa837db90352f98e0e07daa2c68a." style="background: url(http://p6.qhimg.com/d/dy_ed41aa837db90352f98e0e07daa2c68a.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-27期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/Z8IocXNxAJc5DD.html">极限挑战 第四季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第5期:双黄合体"玩坏"小沈阳</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/YcIqbKlv7JQ3Ez.html" title="天天向上" src="http://p9.qhimg.com/t014c70d4043684a33a.jpg" style="background: url(http://p9.qhimg.com/t014c70d4043684a33a.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-27期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/YcIqbKlv7JQ3Ez.html">天天向上</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">洪欣实力护夫回应“抠门”指控</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/Z85maXNxAJg2ED.html" title="拜托了冰箱 中国版 第4季" src="http://p1.qhimg.com/d/dy_a8caa9e02956e8d006541497a79d676a.jpg" style="background: url(http://p1.qhimg.com/d/dy_a8caa9e02956e8d006541497a79d676a.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-23期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/Z85maXNxAJg2ED.html">拜托了冰箱 中国版 第4季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第5期：李诞自曝买不起房</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/acQka3NxA2M8ET.html" title="歌手 2018" src="http://p2.qhimg.com/d/dy_64ed25b7028d4302bfa71bd343fc6e11." style="background: url(http://p2.qhimg.com/d/dy_64ed25b7028d4302bfa71bd343fc6e11.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-04-20期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/acQka3NxA2M8ET.html">歌手 2018</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第14期:歌王Jessie J领衔开唱</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/aMEtanNxA2IAEj.html" title="声临其境" src="http://p1.qhimg.com/d/dy_6b38b3deaacefb4abd5ecb8938b7f157.jpg" style="background: url(http://p1.qhimg.com/d/dy_6b38b3deaacefb4abd5ecb8938b7f157.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-03-17期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/aMEtanNxA2IAEj.html">声临其境</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">韩雪分饰八角技惊四座 郭德纲重演纪晓岚...</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/YsEkbnNxAJcAFD.html" title="创造101" src="http://p1.qhimg.com/d/dy_117edcfe9e8aae8bbba1dbc4fe5ef39b.jpg" style="background: url(http://p1.qhimg.com/d/dy_117edcfe9e8aae8bbba1dbc4fe5ef39b.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-26期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/YsEkbnNxAJcAFD.html">创造101</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">第6期：二次公演舞台专业方向考核</div>
+				</div><div class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy xtcms" href="./play.php?play=/va/Yc5qanNxAJc3Ej.html" title="这！就是铁甲 第一季" src="http://p3.qhimg.com/d/dy_fc369eaf29e61edfab75a44b2418e224." style="background: url(http://p3.qhimg.com/d/dy_fc369eaf29e61edfab75a44b2418e224.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">2018-05-25期</span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="./play.php?play=/va/Yc5qanNxAJc3Ej.html">这！就是铁甲 第一季</a></h5>
+					</div>
+					<div class="subtitle text-muted text-muted text-overflow hidden-xs">魔王踢馆赛来袭 梦之队内讧引争议</div>
+				</div>				
+			<div class="hy-video-footer visible-xs clearfix">
+					<a href="./zongyi.php?m=/zongyi/list.php?cat=all&pageno=1" class="text-muted">查看更多 <i class="icon iconfont icon-right pull-right"></i></a>
+				</div>
+			</div>
+		</div>		
+		<!--综艺-->
+		<!--动漫-->
+		<div class="row"  style="margin-top:10px"></div>
+		<div class="hy-layout clearfix">
+			<div class="hy-video-head">
+				<ul class="pull-right">
+					<li class="active"><a href="./dongman.php?m=/dongman/list.php?cat=all&pageno=1" class="text-muted">更多 <i class="icon iconfont icon-right"></i></a></li>
+				</ul>
+				<h3 class="margin-0"><i class="icon iconfont icon-icon_special text-color"></i>动漫</h3>
+			</div>
+			<div class="clearfix">
+			<div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/O0bsbJ7lLIS0Dj.html" title="猪猪侠之竞球小英雄" src="http://p4.qhimg.com/d/dy_31875a3bee64216d83de58ef7ef6d2d3." style="background: url(http://p4.qhimg.com/d/dy_31875a3bee64216d83de58ef7ef6d2d3.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">26集全</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/O0bsbJ7lLIS0Dj.html">猪猪侠之竞球小英雄</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/Ok8obJ7kNIK3Cj.html" title="狐妖小红娘 南国篇" src="http://p2.qhimg.com/t011da3fcee13b7a9ba.jpg" style="background: url(http://p2.qhimg.com/t011da3fcee13b7a9ba.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至85集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/Ok8obJ7kNIK3Cj.html">狐妖小红娘 南国篇</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/OkXsbcKkLoO2CT.html" title="粉红猪小妹(小猪佩奇)" src="http://p6.qhimg.com/d/dy_7ef044e71f118046b1b44bb5a5cac589.jpg" style="background: url(http://p6.qhimg.com/d/dy_7ef044e71f118046b1b44bb5a5cac589.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">156集全</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/OkXsbcKkLoO2CT.html">粉红猪小妹(小猪佩奇)</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/PkLtap7kMICvCj.html" title="汪汪队立大功全集" src="http://p6.qhimg.com/d/dy_fc7282fed5941d526340232701fe46ee.jpg" style="background: url(http://p6.qhimg.com/d/dy_fc7282fed5941d526340232701fe46ee.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至93集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/PkLtap7kMICvCj.html">汪汪队立大功全集</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/PE4mcJ7kNI33Dz.html" title="汪汪队立大功 第4季" src="http://p7.qhimg.com/d/dy_27ae531523fd0a8053c5429a303a2a34.jpg" style="background: url(http://p7.qhimg.com/d/dy_27ae531523fd0a8053c5429a303a2a34.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至15集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/PE4mcJ7kNI33Dz.html">汪汪队立大功 第4季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/O0DncMDbLYC2DD.html" title="航海王" src="http://p4.qhimg.com/d/dy_1cf688c4fd8403a25dc03e6b8ddad9b5.jpg" style="background: url(http://p4.qhimg.com/d/dy_1cf688c4fd8403a25dc03e6b8ddad9b5.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至838集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/O0DncMDbLYC2DD.html">航海王</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/OUfla57kNIWzDz.html" title="武庚纪 第2季" src="http://p9.qhimg.com/d/dy_c64fae51732e305935c4a1f7439ea1a4." style="background: url(http://p9.qhimg.com/d/dy_c64fae51732e305935c4a1f7439ea1a4.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至23集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/OUfla57kNIWzDz.html">武庚纪 第2季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/PULtcp7kMY3uCT.html" title="博人传 火影忍者新时代" src="http://p1.qhimg.com/d/dy_64d1930b001ddc7cee6b1c0e2a46bbed.jpg" style="background: url(http://p1.qhimg.com/d/dy_64d1930b001ddc7cee6b1c0e2a46bbed.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至59集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/PULtcp7kMY3uCT.html">博人传 火影忍者新时代</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/OUPkaZ7kNY7vDj.html" title="斗罗大陆 第1季" src="http://p0.qhimg.com/d/dy_695e41b4208ee7f19ee1c741bb703d3d." style="background: url(http://p0.qhimg.com/d/dy_695e41b4208ee7f19ee1c741bb703d3d.) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">更新至20集</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/OUPkaZ7kNY7vDj.html">斗罗大陆 第1季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/QEPtcZ7jM4CzCz.html" title="粉红猪小妹(小猪佩奇)第二季" src="http://p8.qhimg.com/d/dy_4f89fa462a1f510f21ae69d0a61c3b58.jpg" style="background: url(http://p8.qhimg.com/d/dy_4f89fa462a1f510f21ae69d0a61c3b58.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">52集全</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/QEPtcZ7jM4CzCz.html">粉红猪小妹(小猪佩奇)第二季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/PUDkcZ7kNYWzED.html" title="灵契 第二季" src="http://p7.qhimg.com/d/dy_a1cf2bf1c2b691afbbda44ca3b9bcc4a.jpg" style="background: url(http://p7.qhimg.com/d/dy_a1cf2bf1c2b691afbbda44ca3b9bcc4a.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">12集全</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/PUDkcZ7kNYWzED.html">灵契 第二季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div><div class="col-md-2 col-sm-3 col-xs-4">
+							<a class="videopic lazy xtcms" href="./play.php?play=/ct/PkDtbJ7kNIa2ED.html" title="妖神记 第二季" src="http://p3.qhimg.com/d/dy_62196da7884207cf0d35b8aece17550d.jpg" style="background: url(http://p3.qhimg.com/d/dy_62196da7884207cf0d35b8aece17550d.jpg) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">40集全</span></a>
+							<div class="title">
+								<h5 class="text-overflow"><a href="./play.php?play=/ct/PkDtbJ7kNIa2ED.html">妖神记 第二季</a></h5>
+							</div>
+							<div class="subtitle text-muted text-muted text-overflow hidden-xs"></div>
+						</div>				<div class="hy-video-footer visible-xs clearfix">
+					<a href="./dongman.php?m=/dongman/list.php?cat=all&pageno=1" class="text-muted">查看更多 <i class="icon iconfont icon-right pull-right"></i></a>
+				</div>
+			</div>
+		</div>		<!--动漫-->
+        <div class="row"  style="margin-top:10px"></div>
+		<div class="hy-layout hidden-sm hidden-xs clearfix">
+			<div class="hy-video-head">
+				<h3 class="margin-0">友情链接</h3>
+			</div>
+			<div class="hy-footer-link">
+				<div class="item clearfix">
+					<ul class="clearfix">
+										<a href="http://baidu.com" target="_blank">百度搜索</a>						<a href="http://youku.com" target="_blank">优酷视频</a>						<a href="https://v.qq.com/?ptag=qqbsc" target="_blank">腾讯视频</a>						<a href="https://shang.qq.com/wpa/qunwpa?idkey=3629f69a6917971eff6c4675bc4292305f403e8a556207c71e6daccabb315b73" target="_blank">加入我们</a>								</ul>
+				</div>
+			</div>
+		</div>
+		</div></div>
+		<script>
+	    var swiper = new Swiper('.hy-slide', {
+	        pagination: '.swiper-pagination',
+	        paginationClickable: true,
+	        autoplay: 3000,
+	        nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+	    });	    
+	    </script>
+<div class="hy-gototop hidden-sm hidden-xs">
+   <ul class="item clearfix">
+    <li><a href="http://cvcit.cn/login.php" title="会员中心"><i class="icon iconfont icon-member1"></i></a></li>
+    <li><a href="http://cvcit.cn/note.php" title="留言求片"><i class="icon iconfont icon-comment"></i></a></li>
+	<li><a href="http://cvcit.cn/#" title="观看记录"><i class="icon iconfont icon-record1"></i></a>
+    <li class="codehover"><a href="javascript:()" title="二维码"><i class="icon iconfont icon-code1"></i></a>
+     <div class="code clearfix">
+      <p class="margin-0">
+	  <img class="pic-responsive" src="/uploadfile/image/20180420/20180420143118_11758.jpg" alt="扫描二维码">
+	  </p>
+     </div></li>
+    <li><a data-toggle="tooltip" data-placement="top" class="" href="javascript:scroll(0,0)" title="返回顶部"><i class="icon iconfont icon-uparrow"></i></a></li>   </ul>
+  </div>
+<div class="tabbar visible-xs">
+		<a href="http://cvcit.cn/" class="item ">
+        <i class="icon iconfont icon-home"></i>
+        <p class="text">首页</p>
+    </a>
+	<a href="http://cvcit.cn/movie.php?m=/dianying/list.php?cat=all%26pageno=1" class="item ">
+        <i class="icon iconfont icon-film"></i>
+        <p class="text">电影</p>
+    </a><a href="http://cvcit.cn/tv.php?u=/dianshi/list.php?cat=all%26pageno=1" class="item ">
+        <i class="icon iconfont icon-show"></i>
+        <p class="text">电视剧</p>
+    </a><a href="http://cvcit.cn/dongman.php?m=/dongman/list.php?cat=all%26pageno=1" class="item ">
+        <i class="icon iconfont icon-mallanimation"></i>
+        <p class="text">动漫</p>
+    </a><a href="http://cvcit.cn/zongyi.php?m=/zongyi/list.php?cat=all%26pageno=1" class="item ">
+        <i class="icon iconfont icon-flag"></i>
+        <p class="text">综艺</p>
+    </a>    </div>
+<div class="container">
+<div class="row"  style="margin-top:10px"><p style="text-align:center;">
+	<strong><span style="font-size:32px;">本站唯一网址</span></strong>
+</p>
+<p style="text-align:center;">
+	<strong><span style="font-size:32px;">www.cvcit.cn</span></strong>
+</p></div>
+	<div class="row">
+		<div class="hy-footer clearfix">
+        <p style="padding: 0 4px;text-align:center" class="container-fluid">本站提供的最新电影和电视剧资源均系收集于各大视频网站,本站只提供web页面服务,并不提供影片资源存储,也不参与录制、上传<br />
+若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信,我们会及时处理和回复,谢谢。<br />
+管理员邮箱：1962604160@qq.com <br />
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273479524'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273479524%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+<a href="http://www.liuliangbao.cn/" title="流量宝" target="_blank">流量宝</a> 
+<meta name="baidu-site-verification" content="xC5FVps6U8" /></p>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
